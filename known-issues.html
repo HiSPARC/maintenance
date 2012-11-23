@@ -1,0 +1,368 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Known issues &mdash; HiSPARC maintenance 0.1 alpha documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1 alpha',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="HiSPARC maintenance 0.1 alpha documentation" href="index.html" />
+    <link rel="prev" title="Frequently asked questions" href="faq.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="faq.html" title="Frequently asked questions"
+             accesskey="P">previous</a></li>
+        <li><a href="index.html">HiSPARC maintenance 0.1 alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="known-issues">
+<h1>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h1>
+<p>This is a list of known possible issues with HiSPARC stations.
+Each problem notes whether it has been fixed in a specific
+version of the software and if it was perhaps introduced by one.
+Also other parameters that could affect the occurance of the issue
+are be noted (e.g. Windows XP/7, RAM, cable lengths).
+Moreover, the Nagios warnings that an issue can trigger are mentioned.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Multiple issues can cause the same Nagios warning.</p>
+</div>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>Each problem has the following fields:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body">Software version that introduced it.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body">Software version that fixed this problem (problems may persist if you upgrade from older versions).</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Explaining how you will probably notice the problem.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body">Nagios warnings that can be triggered.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">This is a small guide explaining how to make sure that the problem being described is what you are experiencing.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">How to solve it.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The effects of this problem.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body">Some words that relate to this problem.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="software">
+<h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
+<p>This sections concerns itself with issues related to the HiSPARC
+station-software.</p>
+<div class="section" id="hisparc-monitor-does-not-start">
+<h2>HiSPARC Monitor does not start<a class="headerlink" href="#hisparc-monitor-does-not-start" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="missing-directory">
+<h3>Missing directory<a class="headerlink" href="#missing-directory" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"><p class="first">v6.9.0</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"><p class="first">v6.10.0</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">When the <tt class="code docutils literal"><span class="pre">STARTHiSPARCSoftware</span></tt> program runs and the other programs (HiSPARC DAQ and Updater) start normally but the HiSPARC Monitor does not appear or closes instantly.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><p class="first"><strong>EventRate</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>, <strong>TriggerRate</strong>, and possibly <strong>Buffer size</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
+<li>Look in <tt class="code docutils literal"><span class="pre">hisparc/persistent/logs/src/</span></tt> for the latest log file.</li>
+<li>Check if there is a line that contains the text <tt class="code docutils literal"><span class="pre">Error:</span> <span class="pre">unable</span> <span class="pre">to</span> <span class="pre">open</span> <span class="pre">database</span> <span class="pre">file</span></tt>.</li>
+<li>Look in the <tt class="code docutils literal"><span class="pre">hisparc/persistent/data/</span></tt> directory for a <tt class="code docutils literal"><span class="pre">hsmonitor</span></tt> folder.</li>
+<li>If it does not exist than go to the solution, otherwise this is not the problem.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Create the missing <tt class="code docutils literal"><span class="pre">hsmonitor</span></tt> directory in <tt class="code docutils literal"><span class="pre">hisparc/persistent/data</span></tt>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first">The missing directory causes the HiSPARC Monitor to be unable to store events in its SQLite database, preventing it from sending events to the Nikhef datastore. Note that the HiSPARC DAQ should be unaffected. No events should be lost, the DAQ will store events in its MySQL database until the hard disc fills up.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="hard-disc-space">
+<h2>Hard Disc Space<a class="headerlink" href="#hard-disc-space" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="to-many-logs">
+<h3>To many logs<a class="headerlink" href="#to-many-logs" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"><p class="first">not yet</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">Nagios warning about Disc Space.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><p class="first"><strong>Disc Space</strong>.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
+<li>Look in hisparc/persistent/logs/.</li>
+<li>Check the size of the src directory by right-clicking on it and choosing &#8216;Properties&#8217;.</li>
+<li>Check if this is a significant fraction of the total disc space.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Remove all logs from the src directory except for the current one (present date in <tt class="code docutils literal"><span class="pre">dd-mm-yyyy.log</span></tt>). Select all (ctrl + a) logs in <tt class="code docutils literal"><span class="pre">hisparc/persistent/logs/src</span></tt>. Deselect the current one (ctrl + click). Remove them using shift + delete (to bypass the Recycle Bin)</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first">If the disc is full the HiSPARC daq can not store events in the database, preventing the station from storing more events.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="to-many-updaters">
+<h3>To many updaters<a class="headerlink" href="#to-many-updaters" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"><p class="first">not yet</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">Nagios warning about Disc Space.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><p class="first"><strong>Disc Space</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
+<li>Look in hisparc/persistent/downloads/.</li>
+<li>There should be some adminUpdater_v##.zip and userUnpacker_v##.exe files there.</li>
+<li>By right-clicking them you can see their file size is of the order of 100 MB.</li>
+<li>If there are many they can take up some space.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Remove all userUnpacker and adminUpdater files except the newest ones. Do this by selecting them and pressing shift + delete to remove them directly.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first">If the disc is full the HiSPARC daq can not store events in the database, preventing the station from storing more events.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="hisparc-daq-errors">
+<h2>HiSPARC DAQ Errors<a class="headerlink" href="#hisparc-daq-errors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="can-not-connect-to-buffer">
+<h3>Can not connect to buffer<a class="headerlink" href="#can-not-connect-to-buffer" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Red LED in HiSPARC DAQ</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">From the Start menu start odbcad32.exe. Check if the hisparc buffer is there.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="not-in-daq-mode">
+<h3>Not in DAQ Mode<a class="headerlink" href="#not-in-daq-mode" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="error-in-hisparc-monitor">
+<h2>Error in HiSPARC Monitor<a class="headerlink" href="#error-in-hisparc-monitor" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="malformed-hisparcii-ini">
+<h3>Malformed HisparcII.ini<a class="headerlink" href="#malformed-hisparcii-ini" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Uncatched</span> <span class="pre">exception</span> <span class="pre">in</span> <span class="pre">job:</span> <span class="pre">need</span> <span class="pre">more</span> <span class="pre">than</span> <span class="pre">1</span> <span class="pre">value</span> <span class="pre">to</span> <span class="pre">unpack.</span> <span class="pre">Restarting...</span></tt></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Check in the file hisparc/persistent/configuration/HisparcII.ini for blank lines</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Remove any blank lines from HisparcII.ini</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="hardware">
+<h1>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/header.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Known issues</a><ul>
+<li><a class="reference internal" href="#structure">Structure</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#software">Software</a><ul>
+<li><a class="reference internal" href="#hisparc-monitor-does-not-start">HiSPARC Monitor does not start</a><ul>
+<li><a class="reference internal" href="#missing-directory">Missing directory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hard-disc-space">Hard Disc Space</a><ul>
+<li><a class="reference internal" href="#to-many-logs">To many logs</a></li>
+<li><a class="reference internal" href="#to-many-updaters">To many updaters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hisparc-daq-errors">HiSPARC DAQ Errors</a><ul>
+<li><a class="reference internal" href="#can-not-connect-to-buffer">Can not connect to buffer</a></li>
+<li><a class="reference internal" href="#not-in-daq-mode">Not in DAQ Mode</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#error-in-hisparc-monitor">Error in HiSPARC Monitor</a><ul>
+<li><a class="reference internal" href="#malformed-hisparcii-ini">Malformed HisparcII.ini</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hardware">Hardware</a></li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="faq.html"
+                        title="previous chapter">Frequently asked questions</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/known-issues.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="faq.html" title="Frequently asked questions"
+             >previous</a></li>
+        <li><a href="index.html">HiSPARC maintenance 0.1 alpha documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2009-2012, HiSPARC.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>
