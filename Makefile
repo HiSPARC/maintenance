@@ -12,7 +12,7 @@ PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest
+.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gh-pages
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
@@ -32,6 +32,7 @@ help:
 	@echo "  changes    to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
+	@echo "  gh-pages   to make HTML and PDF files and put them in a gh-pages branch"
 
 clean:
 	-rm -rf $(BUILDDIR)/*
@@ -128,3 +129,24 @@ doctest:
 	$(SPHINXBUILD) -b doctest $(ALLSPHINXOPTS) $(BUILDDIR)/doctest
 	@echo "Testing of doctests in the sources finished, look at the " \
 	      "results in $(BUILDDIR)/doctest/output.txt."
+
+gh-pages:
+    ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
+        git checkout gh-pages
+        git rm -rf .
+        git clean -dxf
+        git checkout HEAD .nojekyll
+        git checkout master
+        make html
+        make latexpdf
+        mkdir TO_DELETE
+        mv * TO_DELETE
+        mv -fv TO_DELETE/_build/html/* .
+        mv -fv TO_DELETE/_build/latex .
+        rm -rf TO_DELETE
+        git add -A
+        git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
+        git checkout master
+    else
+        $(error Working tree is not clean, please commit all changes.)
+    endif
