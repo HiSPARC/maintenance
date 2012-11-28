@@ -130,9 +130,9 @@ Not in DAQ Mode
 
 :First Sign:
 :Nagios: **TriggerRate**
-:Determination:
-:Solution:
-:Effects:
+:Determination: Look at the program |hispdaq|, see if the button in the middle shows 'DAQ Mode'.
+:Solution: Click the 'DAQ Mode' button in the |hispdaq|.
+:Effects: When the |hispdaq| is not in DAQ Mode it will not store triggered events.
 
 .. :Occuring Since:
    :Fixed Since:
