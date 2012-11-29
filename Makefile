@@ -136,7 +136,7 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git rm -rf .
 	git clean -dxf
 	git checkout HEAD .nojekyll
-	git checkout master
+	git checkout master *
 	make html
 	make latexpdf
 	mkdir TO_DELETE
