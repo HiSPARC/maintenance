@@ -63,10 +63,6 @@ Moreover, the Nagios warnings that an issue can trigger are mentioned.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body">Software version that introduced it.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body">Software version that fixed this problem (problems may persist if you upgrade from older versions).</td>
-</tr>
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Explaining how you will probably notice the problem.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body">Nagios warnings that can be triggered.</td>
@@ -76,8 +72,6 @@ Moreover, the Nagios warnings that an issue can trigger are mentioned.</p>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">How to solve it.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The effects of this problem.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body">Some words that relate to this problem.</td>
 </tr>
 </tbody>
 </table>
@@ -95,12 +89,6 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"><p class="first">v6.9.0</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"><p class="first">v6.10.0</p>
-</td>
-</tr>
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">When the <tt class="code docutils literal"><span class="pre">STARTHiSPARCSoftware</span></tt> program runs and the other programs (HiSPARC DAQ and Updater) start normally but the HiSPARC Monitor does not appear or closes instantly.</p>
 </td>
 </tr>
@@ -118,10 +106,8 @@ station-software.</p>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Create the missing <tt class="code docutils literal"><span class="pre">hsmonitor</span></tt> directory in <tt class="code docutils literal"><span class="pre">hisparc/persistent/data</span></tt>.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first">The missing directory causes the HiSPARC Monitor to be unable to store events in its SQLite database, preventing it from sending events to the Nikhef datastore. Note that the HiSPARC DAQ should be unaffected. No events should be lost, the DAQ will store events in its MySQL database until the hard disc fills up.</p>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">The missing directory causes the HiSPARC Monitor to be unable to store events in its SQLite database, preventing it from sending events to the Nikhef datastore. Note that the HiSPARC DAQ should be unaffected. No events should be lost, the DAQ will store events in its MySQL database until the hard disc fills up.</p>
 </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -135,11 +121,6 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"><p class="first">not yet</p>
-</td>
-</tr>
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">Nagios warning about Disc Space.</p>
 </td>
 </tr>
@@ -156,10 +137,8 @@ station-software.</p>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Remove all logs from the src directory except for the current one (present date in <tt class="code docutils literal"><span class="pre">dd-mm-yyyy.log</span></tt>). Select all (ctrl + a) logs in <tt class="code docutils literal"><span class="pre">hisparc/persistent/logs/src</span></tt>. Deselect the current one (ctrl + click). Remove them using shift + delete (to bypass the Recycle Bin)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first">If the disc is full the HiSPARC daq can not store events in the database, preventing the station from storing more events.</p>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">If the disc is full the HiSPARC daq can not store events in the database, preventing the station from storing more events.</p>
 </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -170,11 +149,6 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"><p class="first">not yet</p>
-</td>
-</tr>
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">Nagios warning about Disc Space.</p>
 </td>
 </tr>
@@ -192,10 +166,8 @@ station-software.</p>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Remove all userUnpacker and adminUpdater files except the newest ones. Do this by selecting them and pressing shift + delete to remove them directly.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first">If the disc is full the HiSPARC daq can not store events in the database, preventing the station from storing more events.</p>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">If the disc is full the HiSPARC daq can not store events in the database, preventing the station from storing more events.</p>
 </td>
-</tr>
-<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>
@@ -209,10 +181,6 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"></td>
-</tr>
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Red LED in HiSPARC DAQ</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
@@ -223,8 +191,6 @@ station-software.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -234,21 +200,15 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"></td>
-</tr>
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Look at the program HiSPARC DAQ, see if the button in the middle shows &#8216;DAQ Mode&#8217;.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"></td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Click the &#8216;DAQ Mode&#8217; button in the HiSPARC DAQ.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">When the HiSPARC DAQ is not in DAQ Mode it will not store triggered events.</td>
 </tr>
 </tbody>
 </table>
@@ -262,10 +222,6 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Occuring Since:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Fixed Since:</th><td class="field-body"></td>
-</tr>
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Uncatched</span> <span class="pre">exception</span> <span class="pre">in</span> <span class="pre">job:</span> <span class="pre">need</span> <span class="pre">more</span> <span class="pre">than</span> <span class="pre">1</span> <span class="pre">value</span> <span class="pre">to</span> <span class="pre">unpack.</span> <span class="pre">Restarting...</span></tt></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
@@ -275,8 +231,6 @@ station-software.</p>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Remove any blank lines from HisparcII.ini</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Keywords:</th><td class="field-body"></td>
 </tr>
 </tbody>
 </table>

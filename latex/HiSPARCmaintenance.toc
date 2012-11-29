@@ -1,0 +1,17 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Frequently asked questions}{5}{chapter.2}
+\contentsline {chapter}{\numberline {3}Known issues}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Structure}{7}{section.3.1}
+\contentsline {chapter}{\numberline {4}Software}{9}{chapter.4}
+\contentsline {section}{\numberline {4.1}HiSPARC Monitor does not start}{9}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Missing directory}{9}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Hard Disc Space}{9}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}To many logs}{9}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}To many updaters}{10}{subsection.4.2.2}
+\contentsline {section}{\numberline {4.3}HiSPARC DAQ Errors}{10}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Can not connect to buffer}{10}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Not in DAQ Mode}{10}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Error in HiSPARC Monitor}{11}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Malformed HisparcII.ini}{11}{subsection.4.4.1}
+\contentsline {chapter}{\numberline {5}Hardware}{13}{chapter.5}
