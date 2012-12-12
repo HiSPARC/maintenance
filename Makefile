@@ -32,7 +32,7 @@ help:
 	@echo "  changes    to make an overview of all changed/added/deprecated items"
 	@echo "  linkcheck  to check all external links for integrity"
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
-	@echo "  gh-pages   to make HTML and PDF files and put them in a gh-pages branch"
+	@echo "  gh-pages   to make HTML and PDF files in a gh-pages branch and commit these"
 
 clean:
 	-rm -rf $(BUILDDIR)/*
@@ -135,15 +135,15 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	git checkout gh-pages
 	git rm -rf .
 	git clean -dxf
-	git checkout HEAD .nojekyll
 	git checkout master *
 	make html
 	make latexpdf
 	mkdir TO_DELETE
-	mv * TO_DELETE
+	mv -fv * TO_DELETE
 	mv -fv TO_DELETE/_build/html/* .
 	mv -fv TO_DELETE/_build/latex .
 	rm -rf TO_DELETE
+	git checkout HEAD .nojekyll
 	git add -A
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
 	git checkout master
