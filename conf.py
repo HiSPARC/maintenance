@@ -159,6 +159,8 @@ html_use_index = False
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'HiSPARCmaintenance'
 
+def setup(app):
+    app.add_javascript('nagios_filter.js')
 
 # -- Options for LaTeX output --------------------------------------------------
 
