@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  18 DEC 2012 13:31
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  18 DEC 2012 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -877,7 +877,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 116--116
 
  []
 
-<logo.pdf, id=48, 148.68349pt x 135.05257pt>
+<logo.pdf, id=24, 148.68349pt x 135.05257pt>
 File: logo.pdf Graphic file (type pdf)
  <use logo.pdf>
 Package pdftex.def Info: logo.pdf used on input line 116.
@@ -967,55 +967,47 @@ Underfull \hbox (badness 10000) in paragraph at lines 160--160
 
 ]
 Chapter 3.
-[7] [8
-
-]
-Chapter 4.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 225.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 228.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 226.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 232.
 (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [9]
-Underfull \hbox (badness 5908) in paragraph at lines 280--282
+) [7]
+Underfull \hbox (badness 5908) in paragraph at lines 284--286
 []\T1/ptm/m/n/10.95 Remove all logs from the src di-rec-tory ex-cept for the cu
 r-rent one
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 280--282
+Underfull \hbox (badness 10000) in paragraph at lines 284--286
 \T1/ptm/m/n/10.95 (present date in \T1/pcr/m/n/10.95 dd-mm-yyyy.log\T1/ptm/m/n/
 10.95 ). Se-lect all (ctrl + a) logs in
  []
 
-[10]
-Underfull \hbox (badness 10000) in paragraph at lines 381--383
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 385--387
 \T1/pcr/m/n/10.95 invalid literal for int() with base 10: 'difference too
  []
 
-[11] [12]
-Chapter 5.
-(./HiSPARCmaintenance.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 432.
- [13
-
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 432.
+[9] [10] (./HiSPARCmaintenance.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 479.
+ [11]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 479.
  (./HiSPARCmaintenance.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 432.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 432.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 479.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 479.
 Package rerunfilecheck Info: File `HiSPARCmaintenance.out' has not changed.
-(rerunfilecheck)             Checksum: 606E817F3262A1D5B03CBCBEE3239FDB;618.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 432.
+(rerunfilecheck)             Checksum: F2EC6BA7B5C653BB96B9F71A5ECE85FC;263.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 479.
  ) 
 Here is how much of TeX's memory you used:
- 8842 strings out of 493488
- 123224 string characters out of 3141326
- 218758 words of memory out of 3000000
- 11927 multiletter control sequences out of 15000+200000
+ 8845 strings out of 493488
+ 123409 string characters out of 3141326
+ 219958 words of memory out of 3000000
+ 11929 multiletter control sequences out of 15000+200000
  55756 words of font info for 68 fonts, out of 3000000 for 9000
  958 hyphenation exceptions out of 8191
- 36i,11n,45p,337b,485s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,11n,45p,337b,491s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/local/texlive/2012/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/local/te
 xlive/2012/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/20
@@ -1024,10 +1016,10 @@ f-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texlive/2012/texmf-dist
 /fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/typ
 e1/urw/times/utmr8a.pfb></usr/local/texlive/2012/texmf-dist/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on HiSPARCmaintenance.pdf (17 pages, 99019 bytes).
+Output written on HiSPARCmaintenance.pdf (15 pages, 97382 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 166 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 166 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

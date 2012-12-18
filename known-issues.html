@@ -11,6 +11,7 @@
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/hisparc_style.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -47,19 +48,23 @@
             
   <div class="section" id="known-issues">
 <h1>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h1>
-<p>This is a list of known possible issues with HiSPARC stations.
-Each problem notes whether it has been fixed in a specific
-version of the software and if it was perhaps introduced by one.
-Also other parameters that could affect the occurance of the issue
-are be noted (e.g. Windows XP/7, RAM, cable lengths).
-Moreover, the Nagios warnings that an issue can trigger are mentioned.</p>
+<p>This is a list of known possible issues with HiSPARC stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Serice warnings that might alert you to problem are noted.</p>
+<p>Here are filters to only show problems which cause a certain Nagios warning:
+<a class="reference external" href="?nagios=Buffersize">Buffer size</a>,
+<a class="reference external" href="?nagios=CPULoad">CPU Load</a>,
+<a class="reference external" href="?nagios=DiscSpace">Disc Space</a>,
+<a class="reference external" href="?nagios=EventRate">EventRate</a>,
+<a class="reference external" href="?nagios=LabviewUsage">Labview Usage</a>,
+<a class="reference external" href="?nagios=MemoryUsage">Memory Usage</a>,
+<a class="reference external" href="?nagios=StorageGrowth">StorageGrowth</a>,
+<a class="reference external" href="?nagios=StorageSize">StorageSize</a>,
+<a class="reference external" href="?nagios=TriggerRate">TriggerRate</a>,
+<a class="reference external" href="?nagios=Uptime">Uptime</a>.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Multiple issues can cause the same Nagios warning.</p>
 </div>
-<div class="section" id="structure">
-<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
-<p>Each problem has the following fields:</p>
+<p>Each problem described below has the following fields:</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -76,16 +81,14 @@ Moreover, the Nagios warnings that an issue can trigger are mentioned.</p>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
 <div class="section" id="software">
-<h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
+<h2>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h2>
 <p>This sections concerns itself with issues related to the HiSPARC
 station-software.</p>
 <div class="section" id="hisparc-monitor-does-not-start">
-<h2>HiSPARC Monitor does not start<a class="headerlink" href="#hisparc-monitor-does-not-start" title="Permalink to this headline">¶</a></h2>
+<h3>HiSPARC Monitor does not start<a class="headerlink" href="#hisparc-monitor-does-not-start" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="missing-directory">
-<h3>Missing directory<a class="headerlink" href="#missing-directory" title="Permalink to this headline">¶</a></h3>
+<h4>Missing directory<a class="headerlink" href="#missing-directory" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -115,9 +118,9 @@ station-software.</p>
 </div>
 </div>
 <div class="section" id="hard-disc-space">
-<h2>Hard Disc Space<a class="headerlink" href="#hard-disc-space" title="Permalink to this headline">¶</a></h2>
+<h3>Hard Disc Space<a class="headerlink" href="#hard-disc-space" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="to-many-logs">
-<h3>To many logs<a class="headerlink" href="#to-many-logs" title="Permalink to this headline">¶</a></h3>
+<h4>To many logs<a class="headerlink" href="#to-many-logs" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -125,7 +128,7 @@ station-software.</p>
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">Nagios warning about Disc Space.</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><p class="first"><strong>Disc Space</strong>.</p>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><p class="first"><strong>Disc Space</strong></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
@@ -145,7 +148,7 @@ station-software.</p>
 </table>
 </div>
 <div class="section" id="to-many-updaters">
-<h3>To many updaters<a class="headerlink" href="#to-many-updaters" title="Permalink to this headline">¶</a></h3>
+<h4>To many updaters<a class="headerlink" href="#to-many-updaters" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -175,9 +178,9 @@ station-software.</p>
 </div>
 </div>
 <div class="section" id="hisparc-daq-errors">
-<h2>HiSPARC DAQ Errors<a class="headerlink" href="#hisparc-daq-errors" title="Permalink to this headline">¶</a></h2>
+<h3>HiSPARC DAQ Errors<a class="headerlink" href="#hisparc-daq-errors" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="can-not-connect-to-buffer">
-<h3>Can not connect to buffer<a class="headerlink" href="#can-not-connect-to-buffer" title="Permalink to this headline">¶</a></h3>
+<h4>Can not connect to buffer<a class="headerlink" href="#can-not-connect-to-buffer" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -196,7 +199,7 @@ station-software.</p>
 </table>
 </div>
 <div class="section" id="not-in-daq-mode">
-<h3>Not in DAQ Mode<a class="headerlink" href="#not-in-daq-mode" title="Permalink to this headline">¶</a></h3>
+<h4>Not in DAQ Mode<a class="headerlink" href="#not-in-daq-mode" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -216,9 +219,9 @@ station-software.</p>
 </div>
 </div>
 <div class="section" id="error-in-hisparc-monitor">
-<h2>Error in HiSPARC Monitor<a class="headerlink" href="#error-in-hisparc-monitor" title="Permalink to this headline">¶</a></h2>
+<h3>Error in HiSPARC Monitor<a class="headerlink" href="#error-in-hisparc-monitor" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="malformed-hisparcii-ini">
-<h3>Malformed HisparcII.ini<a class="headerlink" href="#malformed-hisparcii-ini" title="Permalink to this headline">¶</a></h3>
+<h4>Malformed HisparcII.ini<a class="headerlink" href="#malformed-hisparcii-ini" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -237,7 +240,7 @@ station-software.</p>
 </table>
 </div>
 <div class="section" id="time-difference-to-large">
-<h3>Time difference to large<a class="headerlink" href="#time-difference-to-large" title="Permalink to this headline">¶</a></h3>
+<h4>Time difference to large<a class="headerlink" href="#time-difference-to-large" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -257,9 +260,9 @@ station-software.</p>
 </div>
 </div>
 <div class="section" id="gps">
-<h2>GPS<a class="headerlink" href="#gps" title="Permalink to this headline">¶</a></h2>
+<h3>GPS<a class="headerlink" href="#gps" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="com-port-to-high">
-<h3>COM Port to high<a class="headerlink" href="#com-port-to-high" title="Permalink to this headline">¶</a></h3>
+<h4>COM Port to high<a class="headerlink" href="#com-port-to-high" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -285,9 +288,56 @@ station-software.</p>
 </table>
 </div>
 </div>
+<div class="section" id="uploading">
+<h3>Uploading<a class="headerlink" href="#uploading" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="proxy-not-set">
+<h4>Proxy not set<a class="headerlink" href="#proxy-not-set" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">No data is uploaded, the local storage fills with events</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>StorageSize</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Run LocalDiagnosticTool to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div class="section" id="hardware">
-<h1>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h1>
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>This sections concerns itself with issues related to the HiSPARC
+electronics and hardware.</p>
+<div class="section" id="no-devices-found">
+<h3>No Devices Found<a class="headerlink" href="#no-devices-found" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="connect-to-power">
+<h4>Connect to power<a class="headerlink" href="#connect-to-power" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">HiSPARC DAQ s unable to connect to the HiSPARC electronics</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Start the HiSPARC DAQ, it will show a message that no device is found. Check if the LEDs on the HiSPARC electronics box are lit.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Connect the HiSPARC electronic box via the provided Power supply to a power outlet.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">No data can be taken.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -302,36 +352,21 @@ station-software.</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Known issues</a><ul>
-<li><a class="reference internal" href="#structure">Structure</a></li>
-</ul>
-</li>
 <li><a class="reference internal" href="#software">Software</a><ul>
-<li><a class="reference internal" href="#hisparc-monitor-does-not-start">HiSPARC Monitor does not start</a><ul>
-<li><a class="reference internal" href="#missing-directory">Missing directory</a></li>
+<li><a class="reference internal" href="#hisparc-monitor-does-not-start">HiSPARC Monitor does not start</a></li>
+<li><a class="reference internal" href="#hard-disc-space">Hard Disc Space</a></li>
+<li><a class="reference internal" href="#hisparc-daq-errors">HiSPARC DAQ Errors</a></li>
+<li><a class="reference internal" href="#error-in-hisparc-monitor">Error in HiSPARC Monitor</a></li>
+<li><a class="reference internal" href="#gps">GPS</a></li>
+<li><a class="reference internal" href="#uploading">Uploading</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#hard-disc-space">Hard Disc Space</a><ul>
-<li><a class="reference internal" href="#to-many-logs">To many logs</a></li>
-<li><a class="reference internal" href="#to-many-updaters">To many updaters</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#hisparc-daq-errors">HiSPARC DAQ Errors</a><ul>
-<li><a class="reference internal" href="#can-not-connect-to-buffer">Can not connect to buffer</a></li>
-<li><a class="reference internal" href="#not-in-daq-mode">Not in DAQ Mode</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#error-in-hisparc-monitor">Error in HiSPARC Monitor</a><ul>
-<li><a class="reference internal" href="#malformed-hisparcii-ini">Malformed HisparcII.ini</a></li>
-<li><a class="reference internal" href="#time-difference-to-large">Time difference to large</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#gps">GPS</a><ul>
-<li><a class="reference internal" href="#com-port-to-high">COM Port to high</a></li>
+<li><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li><a class="reference internal" href="#no-devices-found">No Devices Found</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#hardware">Hardware</a></li>
 </ul>
 
   <h4>Previous topic</h4>

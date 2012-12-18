@@ -5,16 +5,17 @@
  */
 $(document).ready(function() {
     var tag = getNagiosQuery()
-    if (tag) {
-        $('div.section').hide();
+    if (tag.length) {
         var topics = $('strong:contains("' + tag + '")');
         var topic_divs = topics.closest('div')
-        topic_divs.parent().parent().parent().closest('div').show();
-        topic_divs.parent().parent().closest('div').show();
-        topic_divs.parent().closest('div').show();
-        topic_divs.show();
-        $('<p class="filter-nagios"><a href="#" onclick="showAllIssues();' +
-          'return false;">Show All Issues</a></p>').appendTo($('#searchbox'));}
+        if (topics.length) {
+            $('div.section').hide();
+            topic_divs.parent().parent().parent().closest('div').show();
+            topic_divs.parent().parent().closest('div').show();
+            topic_divs.parent().closest('div').show();
+            topic_divs.show();
+            $('<p class="filter-nagios"><a href="#" onclick="showAllIssues();' +
+              'return false;">Show All Issues</a></p>').appendTo($('#searchbox'));}}
 });
 
 function showAllIssues() {
@@ -24,7 +25,7 @@ function showAllIssues() {
 
 function getNagiosQuery() {
     var params = $.getQueryParameters();
-    var terms = (params.nagios) ? params.nagios[0] : false;
+    var terms = (params.nagios) ? params.nagios[0] : [];
     return terms;
 }
 

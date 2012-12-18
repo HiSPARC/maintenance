@@ -1,22 +1,28 @@
+:tocdepth: 3
+
 .. include:: subst.inc
 
-
+############
 Known issues
-============
+############
 
-This is a list of known possible issues with |hisparc| stations.
-Each problem notes whether it has been fixed in a specific
-version of the software and if it was perhaps introduced by one.
-Also other parameters that could affect the occurance of the issue
-are be noted (e.g. Windows XP/7, RAM, cable lengths).
-Moreover, the Nagios warnings that an issue can trigger are mentioned.
+This is a list of known possible issues with |hisparc| stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Serice warnings that might alert you to problem are noted.
+
+Here are filters to only show problems which cause a certain Nagios warning:
+`Buffer size <?nagios=Buffer size>`_,
+`CPU Load <?nagios=CPU Load>`_,
+`Disc Space <?nagios=Disc Space>`_,
+`EventRate <?nagios=EventRate>`_,
+`Labview Usage <?nagios=Labview Usage>`_,
+`Memory Usage <?nagios=Memory Usage>`_,
+`StorageGrowth <?nagios=StorageGrowth>`_,
+`StorageSize <?nagios=StorageSize>`_,
+`TriggerRate <?nagios=TriggerRate>`_,
+`Uptime <?nagios=Uptime>`_.
 
 .. note:: Multiple issues can cause the same Nagios warning.
 
-Structure
----------
-
-Each problem has the following fields:
+Each problem described below has the following fields:
 
 :First Sign: Explaining how you will probably notice the problem.
 :Nagios: Nagios warnings that can be triggered.
@@ -79,7 +85,7 @@ To many logs
 ^^^^^^^^^^^^
 
 :First Sign: Nagios warning about Disc Space.
-:Nagios: **Disc Space**.
+:Nagios: **Disc Space**
 :Determination:
     * Look in hisparc/persistent/logs/.
     * Check the size of the src directory by right-clicking on it and choosing 'Properties'.
@@ -189,5 +195,40 @@ COM Port to high
    :Keywords:
 
 
+Uploading
+---------
+
+Proxy not set
+^^^^^^^^^^^^^
+
+:First Sign: No data is uploaded, the local storage fills with events
+:Nagios: **StorageSize**
+:Determination:
+:Solution: Run LocalDiagnosticTool to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.
+:Effects:
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+      
 Hardware
 ========
+
+This sections concerns itself with issues related to the |hisparc|
+electronics and hardware.
+
+No Devices Found
+----------------
+
+Connect to power
+^^^^^^^^^^^^^^^^
+
+:First Sign: |hisparc| DAQ s unable to connect to the |hisparc| electronics
+:Nagios: 
+:Determination: Start the |hisparc| DAQ, it will show a message that no device is found. Check if the LEDs on the |hisparc| electronics box are lit.
+:Solution: Connect the |hisparc| electronic box via the provided Power supply to a power outlet.
+:Effects: No data can be taken.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
