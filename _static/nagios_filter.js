@@ -4,7 +4,7 @@
  * Add link to show all
  */
 $(document).ready(function() {
-    tag = getNagiosQuery()
+    var tag = getNagiosQuery()
     if (tag) {
         $('div.section').hide();
         var topics = $('strong:contains("' + tag + '")');
@@ -18,13 +18,13 @@ $(document).ready(function() {
 });
 
 function showAllIssues() {
-    $('#searchbox .filter-nagios').fadeOut(300);
+    $('#searchbox .filter-nagios').fadeOut();
     $('div.section').fadeIn();
 }
 
 function getNagiosQuery() {
     var params = $.getQueryParameters();
-    var terms = (params.nagios) ? params.nagios[0].split(/\s+/) : [];
+    var terms = (params.nagios) ? params.nagios[0] : [];
     return terms;
 }
 
@@ -51,10 +51,18 @@ $.getQueryParameters = function(s) {
 };
 
 /**
- * Make Jquery selector :contains case-insensitive
+ * Make the jQuery selector ':contains' case-insensitive (jQuery 1.8+)
  */
-$.expr[":"].contains = $.expr.createPseudo(function(arg) {
-    return function( elem ) {
-        return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
-    };
-});
+// $.expr[":"].contains = $.expr.createPseudo(function(arg) {
+//     return function(elem) {
+//         return $(elem).text().toUpperCase().indexOf(arg.toUpperCase()) >= 0;
+//     };
+// });
+
+/**
+ * Make the jQuery selector ':contains' case-insensitive (jQuery <1.8)
+ */
+jQuery.expr[':'].contains = function(a, i, m) {
+    return jQuery(a).text().toLowerCase().replace(/\s[a-z]:/g,'').replace(/\s/g,'').replace(/[^a-z0-9\-]/g,'')
+        .indexOf(m[3].toLowerCase().replace(/\s[a-z]:/g,'').replace(/\s/g,'').replace(/[^a-z0-9\-]/g,'')) >= 0;
+};
