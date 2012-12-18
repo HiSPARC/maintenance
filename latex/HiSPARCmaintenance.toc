@@ -14,4 +14,7 @@
 \contentsline {subsection}{\numberline {4.3.2}Not in DAQ Mode}{10}{subsection.4.3.2}
 \contentsline {section}{\numberline {4.4}Error in HiSPARC Monitor}{11}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Malformed HisparcII.ini}{11}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Time difference to large}{11}{subsection.4.4.2}
+\contentsline {section}{\numberline {4.5}GPS}{11}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}COM Port to high}{11}{subsection.4.5.1}
 \contentsline {chapter}{\numberline {5}Hardware}{13}{chapter.5}

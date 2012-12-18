@@ -156,5 +156,38 @@ Malformed HisparcII.ini
    :Keywords:
 
 
+Time difference to large
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+:First Sign: Errors in the |monitor|: :code:`Uncatched exception in job: invalid literal for int() with base 10: 'difference too large'. Restarting...`
+:Nagios: **TriggerRate**
+:Determination: Check in the file hisparc/persistent/configuration/HisparcII.ini for the text 'difference to large'.
+:Solution: Check the PC time, make sure that it is set to the current time. Check the GPS settings, make sure that it is working and showing the correct GPS time.
+:Effects: Errors in the |hisparc| Monitor and no TriggerRate updates for Nagios.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
+GPS
+---
+
+COM Port to high
+^^^^^^^^^^^^^^^^
+
+:First Sign: ...
+:Nagios: 
+:Determination:
+    * Open Configuration -> System -> Hardware -> Browse Devices -> Com Ports
+    * If the Com ports number higher than 32 the DSP Mon GPS program can not connect to the GPS
+:Solution: Lower the COM Port Number, by direct reassignment, use the com\_port\_reassign utility.
+:Effects: no GPS...
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
 Hardware
 ========

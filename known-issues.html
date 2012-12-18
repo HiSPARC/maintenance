@@ -24,6 +24,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/nagios_filter.js"></script>
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="top" title="HiSPARC maintenance 0.1 alpha documentation" href="index.html" />
     <link rel="prev" title="Frequently asked questions" href="faq.html" /> 
@@ -235,6 +236,54 @@ station-software.</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="time-difference-to-large">
+<h3>Time difference to large<a class="headerlink" href="#time-difference-to-large" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Uncatched</span> <span class="pre">exception</span> <span class="pre">in</span> <span class="pre">job:</span> <span class="pre">invalid</span> <span class="pre">literal</span> <span class="pre">for</span> <span class="pre">int()</span> <span class="pre">with</span> <span class="pre">base</span> <span class="pre">10:</span> <span class="pre">'difference</span> <span class="pre">too</span> <span class="pre">large'.</span> <span class="pre">Restarting...</span></tt></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Check in the file hisparc/persistent/configuration/HisparcII.ini for the text &#8216;difference to large&#8217;.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check the PC time, make sure that it is set to the current time. Check the GPS settings, make sure that it is working and showing the correct GPS time.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="gps">
+<h2>GPS<a class="headerlink" href="#gps" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="com-port-to-high">
+<h3>COM Port to high<a class="headerlink" href="#com-port-to-high" title="Permalink to this headline">¶</a></h3>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">...</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
+<li>Open Configuration -&gt; System -&gt; Hardware -&gt; Browse Devices -&gt; Com Ports</li>
+<li>If the Com ports number higher than 32 the DSP Mon GPS program can not connect to the GPS</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Lower the COM Port Number, by direct reassignment, use the com_port_reassign utility.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">no GPS...</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="section" id="hardware">
@@ -273,6 +322,11 @@ station-software.</p>
 </li>
 <li><a class="reference internal" href="#error-in-hisparc-monitor">Error in HiSPARC Monitor</a><ul>
 <li><a class="reference internal" href="#malformed-hisparcii-ini">Malformed HisparcII.ini</a></li>
+<li><a class="reference internal" href="#time-difference-to-large">Time difference to large</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gps">GPS</a><ul>
+<li><a class="reference internal" href="#com-port-to-high">COM Port to high</a></li>
 </ul>
 </li>
 </ul>

@@ -13,7 +13,7 @@
 
 
 \title{HiSPARC Station Problem and Solutions Documentation}
-\date{November 29, 2012}
+\date{December 18, 2012}
 \release{0.1 alpha}
 \author{HiSPARC team}
 \newcommand{\sphinxlogo}{\includegraphics{logo.pdf}\par}
@@ -372,6 +372,53 @@ Remove any blank lines from HisparcII.ini
 
 \item[{Effects}] \leavevmode
 Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.
+
+\end{description}\end{quote}
+
+
+\subsection{Time difference to large}
+\label{known-issues:time-difference-to-large}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+Errors in the HiSPARC Monitor: \code{Uncatched exception in job: invalid literal for int() with base 10: 'difference too large'. Restarting...}
+
+\item[{Nagios}] \leavevmode
+\textbf{TriggerRate}
+
+\item[{Determination}] \leavevmode
+Check in the file hisparc/persistent/configuration/HisparcII.ini for the text `difference to large'.
+
+\item[{Solution}] \leavevmode
+Check the PC time, make sure that it is set to the current time. Check the GPS settings, make sure that it is working and showing the correct GPS time.
+
+\item[{Effects}] \leavevmode
+Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.
+
+\end{description}\end{quote}
+
+
+\section{GPS}
+\label{known-issues:gps}
+
+\subsection{COM Port to high}
+\label{known-issues:com-port-to-high}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+...
+
+\item[{Nagios}] \leavevmode
+\item[{Determination}] \leavevmode\begin{itemize}
+\item {} 
+Open Configuration -\textgreater{} System -\textgreater{} Hardware -\textgreater{} Browse Devices -\textgreater{} Com Ports
+
+\item {} 
+If the Com ports number higher than 32 the DSP Mon GPS program can not connect to the GPS
+
+\end{itemize}
+
+\item[{Solution}] \leavevmode
+Lower the COM Port Number, by direct reassignment, use the com\_port\_reassign utility.
+
+\item[{Effects}] \leavevmode
+no GPS...
 
 \end{description}\end{quote}
 
