@@ -24,7 +24,7 @@ function showAllIssues() {
 
 function getNagiosQuery() {
     var params = $.getQueryParameters();
-    var terms = (params.nagios) ? params.nagios[0] : [];
+    var terms = (params.nagios) ? params.nagios[0] : false;
     return terms;
 }
 
