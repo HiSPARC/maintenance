@@ -139,10 +139,10 @@ ifeq ($(strip $(shell git status --porcelain | wc -l)), 0)
 	make html
 	make latexpdf
 	mkdir TO_DELETE
-	mv -fv * TO_DELETE
+	-mv -fv * TO_DELETE
 	mv -fv TO_DELETE/_build/html/* .
 	mv -fv TO_DELETE/_build/latex .
-	rm -rf TO_DELETE
+	rm -rfv TO_DELETE
 	git checkout HEAD .nojekyll
 	git add -A
 	git commit -m "Generated gh-pages for `git log master -1 --pretty=short --abbrev-commit`"
