@@ -11,7 +11,7 @@ This is a list of known possible issues with |hisparc| stations. For each proble
 Here are filters to only show problems which cause a certain Nagios warning:
 `Buffer size <?nagios=Buffer size>`_,
 `CPU Load <?nagios=CPU Load>`_,
-`Disc Space <?nagios=Disc Space>`_,
+`Drive Space <?nagios=Drive Space>`_,
 `EventRate <?nagios=EventRate>`_,
 `Labview Usage <?nagios=Labview Usage>`_,
 `Memory Usage <?nagios=Memory Usage>`_,
@@ -85,7 +85,7 @@ To many logs
 ^^^^^^^^^^^^
 
 :First Sign: Nagios warning about Disc Space.
-:Nagios: **Disc Space**
+:Nagios: **Drive Space**
 :Determination:
     * Look in hisparc/persistent/logs/.
     * Check the size of the src directory by right-clicking on it and choosing 'Properties'.
@@ -101,7 +101,7 @@ To many updaters
 ^^^^^^^^^^^^^^^^
 
 :First Sign: Nagios warning about Disc Space.
-:Nagios: **Disc Space**
+:Nagios: **Drive Space**
 :Determination:
     * Look in hisparc/persistent/downloads/.
     * There should be some adminUpdater\_v##.zip and userUnpacker\_v##.exe files there.
