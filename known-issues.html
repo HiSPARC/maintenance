@@ -48,7 +48,7 @@
             
   <div class="section" id="known-issues">
 <h1>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h1>
-<p>This is a list of known possible issues with HiSPARC stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Serice warnings that might alert you to problem are noted.</p>
+<p>This is a list of known possible issues with HiSPARC stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Service warnings that might alert you to the problem are noted.</p>
 <p>Here are filters to only show problems which cause a certain Nagios warning:
 <a class="reference external" href="?nagios=Buffersize">Buffer size</a>,
 <a class="reference external" href="?nagios=CPULoad">CPU Load</a>,
@@ -310,6 +310,47 @@ station-software.</p>
 </table>
 </div>
 </div>
+<div class="section" id="firewall">
+<h3>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="vpn-blocked">
+<h4>VPN blocked<a class="headerlink" href="#vpn-blocked" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">All Status indicators on Nagios are CRITICAL</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>Host</strong>, <strong>Buffer size</strong>, <strong>CPU Load</strong>, <strong>Drive Space</strong>, <strong>EventRate</strong>, <strong>Labview Usage</strong>, <strong>Memory Usage</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>, <strong>TriggerRate</strong>, <strong>Uptime</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Run LocalDiagnosticTool to check the VPN status.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Open TCP port 443 in the firewalls</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Nagios will be unable to check the status of all services. Moreover, the HiSPARC support will be unable to log into the PC remotely to assist in case of problems.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="web-blocked">
+<h4>Web blocked<a class="headerlink" href="#web-blocked" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">No data is uploaded, the local storage fills with events</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>StorageSize</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Try opening a website in a browser on the detector PC, preferably www.nikhef.nl, if this fails then web traffic is blocked. If the browser has no problems, then look at the <a class="reference internal" href="#proxy-not-set">Proxy not set</a> issue.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Open port 80 in the firewalls</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The Uploader of the HiSPARC Monitor uses a HTTP POST Request to send data to our datastore, but this will be blocked if port 80 is closed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div class="section" id="hardware">
 <h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
@@ -325,7 +366,7 @@ electronics and hardware.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">HiSPARC DAQ s unable to connect to the HiSPARC electronics</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>EventRate</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>, <strong>TriggerRate</strong></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Start the HiSPARC DAQ, it will show a message that no device is found. Check if the LEDs on the HiSPARC electronics box are lit.</td>
 </tr>
@@ -359,6 +400,7 @@ electronics and hardware.</p>
 <li><a class="reference internal" href="#error-in-hisparc-monitor">Error in HiSPARC Monitor</a></li>
 <li><a class="reference internal" href="#gps">GPS</a></li>
 <li><a class="reference internal" href="#uploading">Uploading</a></li>
+<li><a class="reference internal" href="#firewall">Firewall</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#hardware">Hardware</a><ul>

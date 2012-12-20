@@ -13,7 +13,7 @@
 
 
 \title{HiSPARC Station Problem and Solutions Documentation}
-\date{December 19, 2012}
+\date{December 20, 2012}
 \release{0.1 alpha}
 \author{HiSPARC team}
 \newcommand{\sphinxlogo}{\includegraphics{logo.pdf}\par}
@@ -179,7 +179,7 @@ Please contact your \href{http://www.hisparc.nl/over-hisparc/organisatie/}{clust
 
 \chapter{Known issues}
 \label{known-issues:known-issues}\label{known-issues::doc}
-This is a list of known possible issues with HiSPARC stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Serice warnings that might alert you to problem are noted.
+This is a list of known possible issues with HiSPARC stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Service warnings that might alert you to the problem are noted.
 
 Here are filters to only show problems which cause a certain Nagios warning:
 Buffer size,
@@ -446,6 +446,49 @@ Run LocalDiagnosticTool to check Proxy settings, if it finds proxy settings for 
 \end{description}\end{quote}
 
 
+\subsection{Firewall}
+\label{known-issues:firewall}
+
+\subsubsection{VPN blocked}
+\label{known-issues:vpn-blocked}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+All Status indicators on Nagios are CRITICAL
+
+\item[{Nagios}] \leavevmode
+\textbf{Host}, \textbf{Buffer size}, \textbf{CPU Load}, \textbf{Drive Space}, \textbf{EventRate}, \textbf{Labview Usage}, \textbf{Memory Usage}, \textbf{StorageGrowth}, \textbf{StorageSize}, \textbf{TriggerRate}, \textbf{Uptime}
+
+\item[{Determination}] \leavevmode
+Run LocalDiagnosticTool to check the VPN status.
+
+\item[{Solution}] \leavevmode
+Open TCP port 443 in the firewalls
+
+\item[{Effects}] \leavevmode
+Nagios will be unable to check the status of all services. Moreover, the HiSPARC support will be unable to log into the PC remotely to assist in case of problems.
+
+\end{description}\end{quote}
+
+
+\subsubsection{Web blocked}
+\label{known-issues:web-blocked}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+No data is uploaded, the local storage fills with events
+
+\item[{Nagios}] \leavevmode
+\textbf{StorageSize}
+
+\item[{Determination}] \leavevmode
+Try opening a website in a browser on the detector PC, preferably www.nikhef.nl, if this fails then web traffic is blocked. If the browser has no problems, then look at the {\hyperref[known-issues:proxy-not-set]{Proxy not set}} issue.
+
+\item[{Solution}] \leavevmode
+Open port 80 in the firewalls
+
+\item[{Effects}] \leavevmode
+The Uploader of the HiSPARC Monitor uses a HTTP POST Request to send data to our datastore, but this will be blocked if port 80 is closed.
+
+\end{description}\end{quote}
+
+
 \section{Hardware}
 \label{known-issues:hardware}
 This sections concerns itself with issues related to the HiSPARC
@@ -461,6 +504,8 @@ electronics and hardware.
 HiSPARC DAQ s unable to connect to the HiSPARC electronics
 
 \item[{Nagios}] \leavevmode
+\textbf{EventRate}, \textbf{StorageGrowth}, \textbf{StorageSize}, \textbf{TriggerRate}
+
 \item[{Determination}] \leavevmode
 Start the HiSPARC DAQ, it will show a message that no device is found. Check if the LEDs on the HiSPARC electronics box are lit.
 
