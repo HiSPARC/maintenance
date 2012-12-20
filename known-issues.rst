@@ -6,7 +6,7 @@
 Known issues
 ############
 
-This is a list of known possible issues with |hisparc| stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Serice warnings that might alert you to problem are noted.
+This is a list of known possible issues with |hisparc| stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Service warnings that might alert you to the problem are noted.
 
 Here are filters to only show problems which cause a certain Nagios warning:
 `Buffer size <?nagios=Buffer size>`_,
@@ -210,7 +210,39 @@ Proxy not set
 .. :Occuring Since:
    :Fixed Since:
    :Keywords:
-      
+
+
+Firewall
+--------
+
+VPN blocked
+^^^^^^^^^^^
+
+:First Sign: All Status indicators on Nagios are CRITICAL
+:Nagios: **Host**, **Buffer size**, **CPU Load**, **Drive Space**, **EventRate**, **Labview Usage**, **Memory Usage**, **StorageGrowth**, **StorageSize**, **TriggerRate**, **Uptime**
+:Determination: Run LocalDiagnosticTool to check the VPN status.
+:Solution: Open TCP port 443 in the firewalls
+:Effects: Nagios will be unable to check the status of all services. Moreover, the |hisparc| support will be unable to log into the PC remotely to assist in case of problems.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
+Web blocked
+^^^^^^^^^^^
+
+:First Sign: No data is uploaded, the local storage fills with events
+:Nagios: **StorageSize**
+:Determination: Try opening a website in a browser on the detector PC, preferably www.nikhef.nl, if this fails then web traffic is blocked. If the browser has no problems, then look at the `Proxy not set`_ issue.
+:Solution: Open port 80 in the firewalls
+:Effects: The Uploader of the |hisparc| Monitor uses a HTTP POST Request to send data to our datastore, but this will be blocked if port 80 is closed.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
 Hardware
 ========
 
@@ -224,7 +256,7 @@ Connect to power
 ^^^^^^^^^^^^^^^^
 
 :First Sign: |hisparc| DAQ s unable to connect to the |hisparc| electronics
-:Nagios: 
+:Nagios: **EventRate**, **StorageGrowth**, **StorageSize**, **TriggerRate**
 :Determination: Start the |hisparc| DAQ, it will show a message that no device is found. Check if the LEDs on the |hisparc| electronics box are lit.
 :Solution: Connect the |hisparc| electronic box via the provided Power supply to a power outlet.
 :Effects: No data can be taken.
