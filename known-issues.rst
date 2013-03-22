@@ -125,7 +125,7 @@ Can not connect to buffer
 :Nagios:
 :Determination: From the Start menu start odbcad32.exe. Check if the hisparc buffer is there.
 :Solution:
-:Effects:
+:Effects: The |hisparc| DAQ will not be able to store events.
 
 .. :Occuring Since:
    :Fixed Since:
@@ -182,13 +182,27 @@ GPS
 COM Port to high
 ^^^^^^^^^^^^^^^^
 
-:First Sign: ...
+:First Sign: The GPS date attatched to events is very inaccurate, like ~1999 or ~2019.
 :Nagios: 
 :Determination:
     * Open Configuration -> System -> Hardware -> Browse Devices -> Com Ports
     * If the Com ports number higher than 32 the DSP Mon GPS program can not connect to the GPS
 :Solution: Lower the COM Port Number, by direct reassignment, use the com\_port\_reassign utility.
-:Effects: no GPS...
+:Effects: No GPS recognized by DSP Mon, this causes data to get dates like 1999 or 2019, making the data unusable.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
+No antenna connected
+^^^^^^^^^^^^^^^^^^^^
+
+:First Sign: The GPS get no satelite signals, seen in the Satelites tab of the |hisparc| DAQ.
+:Nagios: 
+:Determination: Open DSP Mon and check the LED status of the :code:`Antenna Open`. It will be yellow while some of the other LEDs are green. Also all Signal Values (SV) will be 0.
+:Solution: Check the GPS cable for kinks or cuts, also check if the antenna is still properly attached. Once fixed the SV should rise and turn green, as well as the :code:`Antenna Open` status.
+:Effects: Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.
 
 .. :Occuring Since:
    :Fixed Since:
