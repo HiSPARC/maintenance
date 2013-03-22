@@ -193,7 +193,7 @@ station-software.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The HiSPARC DAQ will not be able to store events.</td>
 </tr>
 </tbody>
 </table>
@@ -267,7 +267,7 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">...</p>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">The GPS date attatched to events is very inaccurate, like ~1999 or ~2019.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
@@ -281,8 +281,27 @@ station-software.</p>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Lower the COM Port Number, by direct reassignment, use the com_port_reassign utility.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">no GPS...</p>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">No GPS recognized by DSP Mon, this causes data to get dates like 1999 or 2019, making the data unusable.</p>
 </td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="no-antenna-connected">
+<h4>No antenna connected<a class="headerlink" href="#no-antenna-connected" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">The GPS get no satelite signals, seen in the Satelites tab of the HiSPARC DAQ.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Open DSP Mon and check the LED status of the <tt class="code docutils literal"><span class="pre">Antenna</span> <span class="pre">Open</span></tt>. It will be yellow while some of the other LEDs are green. Also all Signal Values (SV) will be 0.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check the GPS cable for kinks or cuts, also check if the antenna is still properly attached. Once fixed the SV should rise and turn green, as well as the <tt class="code docutils literal"><span class="pre">Antenna</span> <span class="pre">Open</span></tt> status.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.</td>
 </tr>
 </tbody>
 </table>
@@ -300,9 +319,9 @@ station-software.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>StorageSize</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions) to check if a proxy is required.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Run LocalDiagnosticTool to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions) to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
 </tr>
@@ -322,7 +341,7 @@ station-software.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>Host</strong>, <strong>Buffer size</strong>, <strong>CPU Load</strong>, <strong>Drive Space</strong>, <strong>EventRate</strong>, <strong>Labview Usage</strong>, <strong>Memory Usage</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>, <strong>TriggerRate</strong>, <strong>Uptime</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Run LocalDiagnosticTool to check the VPN status.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions) to check the VPN status.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Open TCP port 443 in the firewalls</td>
 </tr>
@@ -350,12 +369,72 @@ station-software.</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="exe-blocked">
+<h4>.exe blocked<a class="headerlink" href="#exe-blocked" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">An update is available but the software can not download it</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Try opening the link to the updater, shown in the HiSPARC Updater, in a webbrowser. If this fails then .exe files are probably blocked by the network.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Allow downloading of .exe files through the firewall</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The Updater will see there is an update and quit the HiSPARC DAQ. However when the update fail it will restart the HiSPARC software, but then see there is an update and try again, it will be stuck in this loop.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="section" id="hardware">
 <h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
 <p>This sections concerns itself with issues related to the HiSPARC
 electronics and hardware.</p>
+<div class="section" id="bad-signals">
+<h3>Bad signals<a class="headerlink" href="#bad-signals" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="bad-power-supply">
+<h4>Bad power supply<a class="headerlink" href="#bad-power-supply" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">HiSPARC DAQ might frequently loose the connection to the HiSPARC electronics or there will be fluctuations (sine) over the signal</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Replace the power supply with a new one and see if the problem disappears</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Replace the power supply</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="light-leak">
+<h4>Light leak<a class="headerlink" href="#light-leak" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Many small peaks (short pulses) in the signals in the HiSPARC DAQ, also the number of events will increase during day time (due to sunlight)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Cover the detector with a light-tight blanket or foil. Now the extra peaks should disappear.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Patch the light-leaking parts with new foil/tape.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 <div class="section" id="no-devices-found">
 <h3>No Devices Found<a class="headerlink" href="#no-devices-found" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="connect-to-power">
@@ -404,6 +483,7 @@ electronics and hardware.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li><a class="reference internal" href="#bad-signals">Bad signals</a></li>
 <li><a class="reference internal" href="#no-devices-found">No Devices Found</a></li>
 </ul>
 </li>

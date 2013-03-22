@@ -16,11 +16,16 @@
 \contentsline {subsubsection}{Time difference to large}{9}{subsubsection*.9}
 \contentsline {subsection}{\numberline {3.1.5}GPS}{10}{subsection.3.1.5}
 \contentsline {subsubsection}{COM Port to high}{10}{subsubsection*.10}
+\contentsline {subsubsection}{No antenna connected}{10}{subsubsection*.11}
 \contentsline {subsection}{\numberline {3.1.6}Uploading}{10}{subsection.3.1.6}
-\contentsline {subsubsection}{Proxy not set}{10}{subsubsection*.11}
-\contentsline {subsection}{\numberline {3.1.7}Firewall}{10}{subsection.3.1.7}
-\contentsline {subsubsection}{VPN blocked}{10}{subsubsection*.12}
-\contentsline {subsubsection}{Web blocked}{11}{subsubsection*.13}
-\contentsline {section}{\numberline {3.2}Hardware}{11}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}No Devices Found}{11}{subsection.3.2.1}
-\contentsline {subsubsection}{Connect to power}{11}{subsubsection*.14}
+\contentsline {subsubsection}{Proxy not set}{10}{subsubsection*.12}
+\contentsline {subsection}{\numberline {3.1.7}Firewall}{11}{subsection.3.1.7}
+\contentsline {subsubsection}{VPN blocked}{11}{subsubsection*.13}
+\contentsline {subsubsection}{Web blocked}{11}{subsubsection*.14}
+\contentsline {subsubsection}{.exe blocked}{11}{subsubsection*.15}
+\contentsline {section}{\numberline {3.2}Hardware}{12}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Bad signals}{12}{subsection.3.2.1}
+\contentsline {subsubsection}{Bad power supply}{12}{subsubsection*.16}
+\contentsline {subsubsection}{Light leak}{12}{subsubsection*.17}
+\contentsline {subsection}{\numberline {3.2.2}No Devices Found}{12}{subsection.3.2.2}
+\contentsline {subsubsection}{Connect to power}{12}{subsubsection*.18}

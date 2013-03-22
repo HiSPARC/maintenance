@@ -13,7 +13,7 @@
 
 
 \title{HiSPARC Station Problem and Solutions Documentation}
-\date{December 20, 2012}
+\date{March 22, 2013}
 \release{0.1 alpha}
 \author{HiSPARC team}
 \newcommand{\sphinxlogo}{\includegraphics{logo.pdf}\par}
@@ -336,6 +336,8 @@ From the Start menu start odbcad32.exe. Check if the hisparc buffer is there.
 
 \item[{Solution}] \leavevmode
 \item[{Effects}] \leavevmode
+The HiSPARC DAQ will not be able to store events.
+
 \end{description}\end{quote}
 
 
@@ -406,7 +408,7 @@ Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.
 \subsubsection{COM Port to high}
 \label{known-issues:com-port-to-high}\begin{quote}\begin{description}
 \item[{First Sign}] \leavevmode
-...
+The GPS date attatched to events is very inaccurate, like \textasciitilde{}1999 or \textasciitilde{}2019.
 
 \item[{Nagios}] \leavevmode
 \item[{Determination}] \leavevmode\begin{itemize}
@@ -422,7 +424,25 @@ If the Com ports number higher than 32 the DSP Mon GPS program can not connect t
 Lower the COM Port Number, by direct reassignment, use the com\_port\_reassign utility.
 
 \item[{Effects}] \leavevmode
-no GPS...
+No GPS recognized by DSP Mon, this causes data to get dates like 1999 or 2019, making the data unusable.
+
+\end{description}\end{quote}
+
+
+\subsubsection{No antenna connected}
+\label{known-issues:no-antenna-connected}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+The GPS get no satelite signals, seen in the Satelites tab of the HiSPARC DAQ.
+
+\item[{Nagios}] \leavevmode
+\item[{Determination}] \leavevmode
+Open DSP Mon and check the LED status of the \code{Antenna Open}. It will be yellow while some of the other LEDs are green. Also all Signal Values (SV) will be 0.
+
+\item[{Solution}] \leavevmode
+Check the GPS cable for kinks or cuts, also check if the antenna is still properly attached. Once fixed the SV should rise and turn green, as well as the \code{Antenna Open} status.
+
+\item[{Effects}] \leavevmode
+Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.
 
 \end{description}\end{quote}
 
@@ -439,8 +459,10 @@ No data is uploaded, the local storage fills with events
 \textbf{StorageSize}
 
 \item[{Determination}] \leavevmode
+Run Diagnostics (LocalDiagnosticTool in older versions) to check if a proxy is required.
+
 \item[{Solution}] \leavevmode
-Run LocalDiagnosticTool to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.
+Run Diagnostics (LocalDiagnosticTool in older versions) to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.
 
 \item[{Effects}] \leavevmode
 \end{description}\end{quote}
@@ -458,7 +480,7 @@ All Status indicators on Nagios are CRITICAL
 \textbf{Host}, \textbf{Buffer size}, \textbf{CPU Load}, \textbf{Drive Space}, \textbf{EventRate}, \textbf{Labview Usage}, \textbf{Memory Usage}, \textbf{StorageGrowth}, \textbf{StorageSize}, \textbf{TriggerRate}, \textbf{Uptime}
 
 \item[{Determination}] \leavevmode
-Run LocalDiagnosticTool to check the VPN status.
+Run Diagnostics (LocalDiagnosticTool in older versions) to check the VPN status.
 
 \item[{Solution}] \leavevmode
 Open TCP port 443 in the firewalls
@@ -489,10 +511,65 @@ The Uploader of the HiSPARC Monitor uses a HTTP POST Request to send data to our
 \end{description}\end{quote}
 
 
+\subsubsection{.exe blocked}
+\label{known-issues:exe-blocked}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+An update is available but the software can not download it
+
+\item[{Nagios}] \leavevmode
+\item[{Determination}] \leavevmode
+Try opening the link to the updater, shown in the HiSPARC Updater, in a webbrowser. If this fails then .exe files are probably blocked by the network.
+
+\item[{Solution}] \leavevmode
+Allow downloading of .exe files through the firewall
+
+\item[{Effects}] \leavevmode
+The Updater will see there is an update and quit the HiSPARC DAQ. However when the update fail it will restart the HiSPARC software, but then see there is an update and try again, it will be stuck in this loop.
+
+\end{description}\end{quote}
+
+
 \section{Hardware}
 \label{known-issues:hardware}
 This sections concerns itself with issues related to the HiSPARC
 electronics and hardware.
+
+
+\subsection{Bad signals}
+\label{known-issues:bad-signals}
+
+\subsubsection{Bad power supply}
+\label{known-issues:bad-power-supply}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+HiSPARC DAQ might frequently loose the connection to the HiSPARC electronics or there will be fluctuations (sine) over the signal
+
+\item[{Nagios}] \leavevmode
+\item[{Determination}] \leavevmode
+Replace the power supply with a new one and see if the problem disappears
+
+\item[{Solution}] \leavevmode
+Replace the power supply
+
+\item[{Effects}] \leavevmode
+\end{description}\end{quote}
+
+
+\subsubsection{Light leak}
+\label{known-issues:light-leak}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+Many small peaks (short pulses) in the signals in the HiSPARC DAQ, also the number of events will increase during day time (due to sunlight)
+
+\item[{Nagios}] \leavevmode
+\textbf{TriggerRate}
+
+\item[{Determination}] \leavevmode
+Cover the detector with a light-tight blanket or foil. Now the extra peaks should disappear.
+
+\item[{Solution}] \leavevmode
+Patch the light-leaking parts with new foil/tape.
+
+\item[{Effects}] \leavevmode
+\end{description}\end{quote}
 
 
 \subsection{No Devices Found}

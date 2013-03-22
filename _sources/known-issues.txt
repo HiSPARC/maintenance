@@ -125,7 +125,7 @@ Can not connect to buffer
 :Nagios:
 :Determination: From the Start menu start odbcad32.exe. Check if the hisparc buffer is there.
 :Solution:
-:Effects:
+:Effects: The |hisparc| DAQ will not be able to store events.
 
 .. :Occuring Since:
    :Fixed Since:
@@ -182,13 +182,27 @@ GPS
 COM Port to high
 ^^^^^^^^^^^^^^^^
 
-:First Sign: ...
+:First Sign: The GPS date attatched to events is very inaccurate, like ~1999 or ~2019.
 :Nagios: 
 :Determination:
     * Open Configuration -> System -> Hardware -> Browse Devices -> Com Ports
     * If the Com ports number higher than 32 the DSP Mon GPS program can not connect to the GPS
 :Solution: Lower the COM Port Number, by direct reassignment, use the com\_port\_reassign utility.
-:Effects: no GPS...
+:Effects: No GPS recognized by DSP Mon, this causes data to get dates like 1999 or 2019, making the data unusable.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
+No antenna connected
+^^^^^^^^^^^^^^^^^^^^
+
+:First Sign: The GPS get no satelite signals, seen in the Satelites tab of the |hisparc| DAQ.
+:Nagios: 
+:Determination: Open DSP Mon and check the LED status of the :code:`Antenna Open`. It will be yellow while some of the other LEDs are green. Also all Signal Values (SV) will be 0.
+:Solution: Check the GPS cable for kinks or cuts, also check if the antenna is still properly attached. Once fixed the SV should rise and turn green, as well as the :code:`Antenna Open` status.
+:Effects: Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.
 
 .. :Occuring Since:
    :Fixed Since:
@@ -203,8 +217,8 @@ Proxy not set
 
 :First Sign: No data is uploaded, the local storage fills with events
 :Nagios: **StorageSize**
-:Determination:
-:Solution: Run LocalDiagnosticTool to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.
+:Determination: Run Diagnostics (LocalDiagnosticTool in older versions) to check if a proxy is required.
+:Solution: Run Diagnostics (LocalDiagnosticTool in older versions) to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.
 :Effects:
 
 .. :Occuring Since:
@@ -220,7 +234,7 @@ VPN blocked
 
 :First Sign: All Status indicators on Nagios are CRITICAL
 :Nagios: **Host**, **Buffer size**, **CPU Load**, **Drive Space**, **EventRate**, **Labview Usage**, **Memory Usage**, **StorageGrowth**, **StorageSize**, **TriggerRate**, **Uptime**
-:Determination: Run LocalDiagnosticTool to check the VPN status.
+:Determination: Run Diagnostics (LocalDiagnosticTool in older versions) to check the VPN status.
 :Solution: Open TCP port 443 in the firewalls
 :Effects: Nagios will be unable to check the status of all services. Moreover, the |hisparc| support will be unable to log into the PC remotely to assist in case of problems.
 
@@ -243,11 +257,57 @@ Web blocked
    :Keywords:
 
 
+.exe blocked
+^^^^^^^^^^^^
+
+:First Sign: An update is available but the software can not download it
+:Nagios: ..
+:Determination: Try opening the link to the updater, shown in the |hisparc| Updater, in a webbrowser. If this fails then .exe files are probably blocked by the network.
+:Solution: Allow downloading of .exe files through the firewall
+:Effects: The Updater will see there is an update and quit the |hisparc| DAQ. However when the update fail it will restart the |hisparc| software, but then see there is an update and try again, it will be stuck in this loop.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
 Hardware
 ========
 
 This sections concerns itself with issues related to the |hisparc|
 electronics and hardware.
+
+
+Bad signals
+-----------
+
+Bad power supply
+^^^^^^^^^^^^^^^^
+
+:First Sign: |hisparc| DAQ might frequently loose the connection to the |hisparc| electronics or there will be fluctuations (sine) over the signal
+:Nagios: 
+:Determination: Replace the power supply with a new one and see if the problem disappears
+:Solution: Replace the power supply
+:Effects: 
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
+Light leak
+^^^^^^^^^^
+
+:First Sign: Many small peaks (short pulses) in the signals in the |hisparc| DAQ, also the number of events will increase during day time (due to sunlight)
+:Nagios: **TriggerRate**
+:Determination: Cover the detector with a light-tight blanket or foil. Now the extra peaks should disappear.
+:Solution: Patch the light-leaking parts with new foil/tape.
+:Effects: 
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
 
 No Devices Found
 ----------------
