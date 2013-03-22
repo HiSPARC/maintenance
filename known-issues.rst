@@ -277,6 +277,38 @@ Hardware
 This sections concerns itself with issues related to the |hisparc|
 electronics and hardware.
 
+
+Bad signals
+-----------
+
+Bad power supply
+^^^^^^^^^^^^^^^^
+
+:First Sign: |hisparc| DAQ might frequently loose the connection to the |hisparc| electronics or there will be fluctuations (sine) over the signal
+:Nagios: 
+:Determination: Replace the power supply with a new one and see if the problem disappears
+:Solution: Replace the power supply
+:Effects: 
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
+Light leak
+^^^^^^^^^^
+
+:First Sign: Many small peaks (short pulses) in the signals in the |hisparc| DAQ, also the number of events will increase during day time (due to sunlight)
+:Nagios: **TriggerRate**
+:Determination: Cover the detector with a light-tight blanket or foil. Now the extra peaks should disappear.
+:Solution: Patch the light-leaking parts with new foil/tape.
+:Effects: 
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
 No Devices Found
 ----------------
 
