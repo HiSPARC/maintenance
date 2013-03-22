@@ -243,6 +243,20 @@ Web blocked
    :Keywords:
 
 
+.exe blocked
+^^^^^^^^^^^^
+
+:First Sign: An update is available but the software can not download it
+:Nagios: ..
+:Determination: Try opening the link to the updater, shown in the |hisparc| Updater, in a webbrowser. If this fails then .exe files are probably blocked by the network.
+:Solution: Allow downloading of .exe files through the firewall
+:Effects: The Updater will see there is an update and quit the |hisparc| DAQ. However when the udpate fail it will restart the |hisparc| software, but then see there is an update and try again, it will be stuck in this loop.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
 Hardware
 ========
 
