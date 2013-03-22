@@ -203,8 +203,8 @@ Proxy not set
 
 :First Sign: No data is uploaded, the local storage fills with events
 :Nagios: **StorageSize**
-:Determination:
-:Solution: Run LocalDiagnosticTool to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.
+:Determination: Run Diagnostics (LocalDiagnosticTool in older versions) to check if a proxy is required.
+:Solution: Run Diagnostics (LocalDiagnosticTool in older versions) to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.
 :Effects:
 
 .. :Occuring Since:
@@ -220,7 +220,7 @@ VPN blocked
 
 :First Sign: All Status indicators on Nagios are CRITICAL
 :Nagios: **Host**, **Buffer size**, **CPU Load**, **Drive Space**, **EventRate**, **Labview Usage**, **Memory Usage**, **StorageGrowth**, **StorageSize**, **TriggerRate**, **Uptime**
-:Determination: Run LocalDiagnosticTool to check the VPN status.
+:Determination: Run Diagnostics (LocalDiagnosticTool in older versions) to check the VPN status.
 :Solution: Open TCP port 443 in the firewalls
 :Effects: Nagios will be unable to check the status of all services. Moreover, the |hisparc| support will be unable to log into the PC remotely to assist in case of problems.
 
@@ -250,7 +250,7 @@ Web blocked
 :Nagios: ..
 :Determination: Try opening the link to the updater, shown in the |hisparc| Updater, in a webbrowser. If this fails then .exe files are probably blocked by the network.
 :Solution: Allow downloading of .exe files through the firewall
-:Effects: The Updater will see there is an update and quit the |hisparc| DAQ. However when the udpate fail it will restart the |hisparc| software, but then see there is an update and try again, it will be stuck in this loop.
+:Effects: The Updater will see there is an update and quit the |hisparc| DAQ. However when the update fail it will restart the |hisparc| software, but then see there is an update and try again, it will be stuck in this loop.
 
 .. :Occuring Since:
    :Fixed Since:
