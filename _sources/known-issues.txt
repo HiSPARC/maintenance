@@ -176,6 +176,20 @@ Time difference to large
    :Keywords:
 
 
+400 Bad Gateway
+^^^^^^^^^^^^^^^
+
+:First Sign: Errors in the |monitor|: :code:`400 Bad Gateway`
+:Nagios: **StorageSize**
+:Determination: 
+:Solution: Unknown [find out where data is lost, buffer->storage->uploader?]
+:Effects: Errors in the |hisparc| Monitor and no TriggerRate updates for Nagios.
+
+.. :Occuring Since:
+   :Fixed Since:
+   :Keywords:
+
+
 GPS
 ---
 

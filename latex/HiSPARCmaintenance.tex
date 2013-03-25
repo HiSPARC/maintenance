@@ -13,7 +13,7 @@
 
 
 \title{HiSPARC Station Problem and Solutions Documentation}
-\date{March 22, 2013}
+\date{March 25, 2013}
 \release{0.1 alpha}
 \author{HiSPARC team}
 \newcommand{\sphinxlogo}{\includegraphics{logo.pdf}\par}
@@ -395,6 +395,24 @@ Check in the file hisparc/persistent/configuration/HisparcII.ini for the text `d
 
 \item[{Solution}] \leavevmode
 Check the PC time, make sure that it is set to the current time. Check the GPS settings, make sure that it is working and showing the correct GPS time.
+
+\item[{Effects}] \leavevmode
+Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.
+
+\end{description}\end{quote}
+
+
+\subsubsection{400 Bad Gateway}
+\label{known-issues:bad-gateway}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+Errors in the HiSPARC Monitor: \code{400 Bad Gateway}
+
+\item[{Nagios}] \leavevmode
+\textbf{StorageSize}
+
+\item[{Determination}] \leavevmode
+\item[{Solution}] \leavevmode
+Unknown {[}find out where data is lost, buffer-\textgreater{}storage-\textgreater{}uploader?{]}
 
 \item[{Effects}] \leavevmode
 Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.
