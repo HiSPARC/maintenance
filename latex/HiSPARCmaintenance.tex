@@ -13,8 +13,8 @@
 
 
 \title{HiSPARC Station Problem and Solutions Documentation}
-\date{March 25, 2013}
-\release{0.1 alpha}
+\date{April 08, 2013}
+\release{0.2}
 \author{HiSPARC team}
 \newcommand{\sphinxlogo}{\includegraphics{logo.pdf}\par}
 \renewcommand{\releasename}{Release}
@@ -271,7 +271,7 @@ Nagios warning about Disc Space.
 
 \item[{Determination}] \leavevmode\begin{itemize}
 \item {} 
-Look in hisparc/persistent/logs/.
+Look in \code{hisparc/persistent/logs/}.
 
 \item {} 
 Check the size of the src directory by right-clicking on it and choosing `Properties'.
@@ -300,7 +300,7 @@ Nagios warning about Disc Space.
 
 \item[{Determination}] \leavevmode\begin{itemize}
 \item {} 
-Look in hisparc/persistent/downloads/.
+Look in \code{hisparc/persistent/downloads/}.
 
 \item {} 
 There should be some adminUpdater\_v\#\#.zip and userUnpacker\_v\#\#.exe files there.
@@ -371,7 +371,7 @@ Errors in the HiSPARC Monitor: \code{Uncatched exception in job: need more than 
 \textbf{TriggerRate}
 
 \item[{Determination}] \leavevmode
-Check in the file hisparc/persistent/configuration/HisparcII.ini for blank lines
+Check in the file \code{hisparc/persistent/configuration/HisparcII.ini} for blank lines
 
 \item[{Solution}] \leavevmode
 Remove any blank lines from HisparcII.ini
@@ -391,7 +391,7 @@ Errors in the HiSPARC Monitor: \code{Uncatched exception in job: invalid literal
 \textbf{TriggerRate}
 
 \item[{Determination}] \leavevmode
-Check in the file hisparc/persistent/configuration/HisparcII.ini for the text `difference to large'.
+Check in the file \code{hisparc/persistent/configuration/HisparcII.ini} for the text \code{difference to large}.
 
 \item[{Solution}] \leavevmode
 Check the PC time, make sure that it is set to the current time. Check the GPS settings, make sure that it is working and showing the correct GPS time.
@@ -402,20 +402,22 @@ Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.
 \end{description}\end{quote}
 
 
-\subsubsection{400 Bad Gateway}
-\label{known-issues:bad-gateway}\begin{quote}\begin{description}
+\subsubsection{400 Bad Request}
+\label{known-issues:bad-request}\begin{quote}\begin{description}
 \item[{First Sign}] \leavevmode
-Errors in the HiSPARC Monitor: \code{400 Bad Gateway}
+Errors in the HiSPARC Monitor: \code{Error Uploader: .. Return code: 400}
 
 \item[{Nagios}] \leavevmode
-\textbf{StorageSize}
+\textbf{StorageSize}, \textbf{TriggerRate}
 
 \item[{Determination}] \leavevmode
+Ensure that all required variables are being uploaded: station\_id, password, data and the checksum.
+
 \item[{Solution}] \leavevmode
-Unknown {[}find out where data is lost, buffer-\textgreater{}storage-\textgreater{}uploader?{]}
+Check that the station number and password are entered correctly in the configuration file: \code{hisparc/persistent/configuration/config.ini}.
 
 \item[{Effects}] \leavevmode
-Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.
+No data will be uploaded.
 
 \end{description}\end{quote}
 
