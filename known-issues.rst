@@ -87,7 +87,7 @@ To many logs
 :First Sign: Nagios warning about Disc Space.
 :Nagios: **Drive Space**
 :Determination:
-    * Look in hisparc/persistent/logs/.
+    * Look in :code:`hisparc/persistent/logs/`.
     * Check the size of the src directory by right-clicking on it and choosing 'Properties'.
     * Check if this is a significant fraction of the total disc space.
 :Solution: Remove all logs from the src directory except for the current one (present date in :code:`dd-mm-yyyy.log`). Select all (ctrl + a) logs in :code:`hisparc/persistent/logs/src`. Deselect the current one (ctrl + click). Remove them using shift + delete (to bypass the Recycle Bin)
@@ -103,7 +103,7 @@ To many updaters
 :First Sign: Nagios warning about Disc Space.
 :Nagios: **Drive Space**
 :Determination:
-    * Look in hisparc/persistent/downloads/.
+    * Look in :code:`hisparc/persistent/downloads/`.
     * There should be some adminUpdater\_v##.zip and userUnpacker\_v##.exe files there.
     * By right-clicking them you can see their file size is of the order of 100 MB.
     * If there are many they can take up some space.
@@ -153,7 +153,7 @@ Malformed HisparcII.ini
 
 :First Sign: Errors in the |hisparc| Monitor: :code:`Uncatched exception in job: need more than 1 value to unpack. Restarting...`
 :Nagios: **TriggerRate**
-:Determination: Check in the file hisparc/persistent/configuration/HisparcII.ini for blank lines
+:Determination: Check in the file :code:`hisparc/persistent/configuration/HisparcII.ini` for blank lines
 :Solution: Remove any blank lines from HisparcII.ini
 :Effects: Errors in the |hisparc| Monitor and no TriggerRate updates for Nagios.
 
@@ -167,7 +167,7 @@ Time difference to large
 
 :First Sign: Errors in the |monitor|: :code:`Uncatched exception in job: invalid literal for int() with base 10: 'difference too large'. Restarting...`
 :Nagios: **TriggerRate**
-:Determination: Check in the file hisparc/persistent/configuration/HisparcII.ini for the text 'difference to large'.
+:Determination: Check in the file :code:`hisparc/persistent/configuration/HisparcII.ini` for the text :code:`difference to large`.
 :Solution: Check the PC time, make sure that it is set to the current time. Check the GPS settings, make sure that it is working and showing the correct GPS time.
 :Effects: Errors in the |hisparc| Monitor and no TriggerRate updates for Nagios.
 
@@ -176,14 +176,14 @@ Time difference to large
    :Keywords:
 
 
-400 Bad Gateway
+400 Bad Request
 ^^^^^^^^^^^^^^^
 
-:First Sign: Errors in the |monitor|: :code:`400 Bad Gateway`
-:Nagios: **StorageSize**
-:Determination: 
-:Solution: Unknown [find out where data is lost, buffer->storage->uploader?]
-:Effects: Errors in the |hisparc| Monitor and no TriggerRate updates for Nagios.
+:First Sign: Errors in the |monitor|: :code:`Error Uploader: .. Return code: 400`
+:Nagios: **StorageSize**, **TriggerRate**
+:Determination: Ensure that all required variables are being uploaded: station_id, password, data and the checksum.
+:Solution: Check that the station number and password are entered correctly in the configuration file: :code:`hisparc/persistent/configuration/config.ini`.
+:Effects: No data will be uploaded.
 
 .. :Occuring Since:
    :Fixed Since:
