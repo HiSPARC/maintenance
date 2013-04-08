@@ -323,6 +323,19 @@ Light leak
    :Keywords:
 
 
+.. Signal reflections
+   ^^^^^^^^^^^^^^^^^^
+
+   :First Sign: Small pulse going above the baseline (positive mV), often the same shape as a preceding signal.
+   :Nagios: 
+   :Determination: Look for small upward pulses in the |hisparc| DAQ, it might help to turn off data reduction to see more of the pulse after the actual.
+   :Solution: 
+   :Effects: 
+
+   .. :Fixed:
+      :Keywords:
+
+
 No Devices Found
 ----------------
 
