@@ -30,8 +30,7 @@ Each problem described below has the following fields:
 :Solution: How to solve it.
 :Effects: The effects of this problem.
 
-.. :Occuring Since: Software version that introduced it.
-   :Fixed Since: Software version that fixed this problem (problems may persist if you upgrade from older versions).
+.. :Fixed: True if it is fixed in the latest version.
    :Keywords: Some words that relate to this problem.
 
 .. Template
@@ -46,8 +45,7 @@ Each problem described below has the following fields:
    :Solution:
    :Effects:
 
-   .. :Occuring Since:
-      :Fixed Since:
+   .. :Fixed:
       :Keywords:
 
 Software
@@ -73,8 +71,7 @@ Missing directory
 :Solution: Create the missing :code:`hsmonitor` directory in :code:`hisparc/persistent/data`. 
 :Effects: The missing directory causes the |hisparc| Monitor to be unable to store events in its SQLite database, preventing it from sending events to the Nikhef datastore. Note that the |hisparc| DAQ should be unaffected. No events should be lost, the DAQ will store events in its MySQL database until the hard disc fills up.
 
-.. :Occuring Since: v6.9.0
-   :Fixed Since: v6.10.0
+.. :Fixed: True
    :Keywords:
 
 
@@ -93,8 +90,7 @@ To many logs
 :Solution: Remove all logs from the src directory except for the current one (present date in :code:`dd-mm-yyyy.log`). Select all (ctrl + a) logs in :code:`hisparc/persistent/logs/src`. Deselect the current one (ctrl + click). Remove them using shift + delete (to bypass the Recycle Bin)
 :Effects: If the disc is full the |hisparc| daq can not store events in the database, preventing the station from storing more events.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 To many updaters
@@ -110,8 +106,7 @@ To many updaters
 :Solution: Remove all userUnpacker and adminUpdater files except the newest ones. Do this by selecting them and pressing shift + delete to remove them directly.
 :Effects: If the disc is full the |hisparc| daq can not store events in the database, preventing the station from storing more events.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -127,8 +122,7 @@ Can not connect to buffer
 :Solution:
 :Effects: The |hisparc| DAQ will not be able to store events.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 Not in DAQ Mode
@@ -140,8 +134,7 @@ Not in DAQ Mode
 :Solution: Click the 'DAQ Mode' button in the |hispdaq|.
 :Effects: When the |hispdaq| is not in DAQ Mode it will not store triggered events.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -157,8 +150,7 @@ Malformed HisparcII.ini
 :Solution: Remove any blank lines from HisparcII.ini
 :Effects: Errors in the |hisparc| Monitor and no TriggerRate updates for Nagios.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -171,8 +163,7 @@ Time difference to large
 :Solution: Check the PC time, make sure that it is set to the current time. Check the GPS settings, make sure that it is working and showing the correct GPS time.
 :Effects: Errors in the |hisparc| Monitor and no TriggerRate updates for Nagios.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -185,8 +176,7 @@ Time difference to large
 :Solution: Check that the station number and password are entered correctly in the configuration file: :code:`hisparc/persistent/configuration/config.ini`.
 :Effects: No data will be uploaded.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -204,8 +194,7 @@ COM Port to high
 :Solution: Lower the COM Port Number, by direct reassignment, use the com\_port\_reassign utility.
 :Effects: No GPS recognized by DSP Mon, this causes data to get dates like 1999 or 2019, making the data unusable.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -218,8 +207,7 @@ No antenna connected
 :Solution: Check the GPS cable for kinks or cuts, also check if the antenna is still properly attached. Once fixed the SV should rise and turn green, as well as the :code:`Antenna Open` status.
 :Effects: Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -235,8 +223,7 @@ Proxy not set
 :Solution: Run Diagnostics (LocalDiagnosticTool in older versions) to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.
 :Effects:
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -252,8 +239,7 @@ VPN blocked
 :Solution: Open TCP port 443 in the firewalls
 :Effects: Nagios will be unable to check the status of all services. Moreover, the |hisparc| support will be unable to log into the PC remotely to assist in case of problems.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -266,8 +252,7 @@ Web blocked
 :Solution: Open port 80 in the firewalls
 :Effects: The Uploader of the |hisparc| Monitor uses a HTTP POST Request to send data to our datastore, but this will be blocked if port 80 is closed.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -280,8 +265,7 @@ Web blocked
 :Solution: Allow downloading of .exe files through the firewall
 :Effects: The Updater will see there is an update and quit the |hisparc| DAQ. However when the update fail it will restart the |hisparc| software, but then see there is an update and try again, it will be stuck in this loop.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -304,8 +288,7 @@ Bad power supply
 :Solution: Replace the power supply
 :Effects: 
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
 
 
@@ -318,9 +301,21 @@ Light leak
 :Solution: Patch the light-leaking parts with new foil/tape.
 :Effects: 
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
+
+
+.. Signal reflections
+   ^^^^^^^^^^^^^^^^^^
+
+   :First Sign: Small pulse going above the baseline (positive mV), often the same shape as a preceding signal.
+   :Nagios: 
+   :Determination: Look for small upward pulses in the |hisparc| DAQ, it might help to turn off data reduction to see more of the pulse after the actual.
+   :Solution: 
+   :Effects: 
+
+   .. :Fixed:
+      :Keywords:
 
 
 No Devices Found
@@ -335,6 +330,5 @@ Connect to power
 :Solution: Connect the |hisparc| electronic box via the provided Power supply to a power outlet.
 :Effects: No data can be taken.
 
-.. :Occuring Since:
-   :Fixed Since:
+.. :Fixed:
    :Keywords:
