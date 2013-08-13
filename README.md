@@ -1,4 +1,4 @@
-HiPSARC Maintenance Documentation
+HiSPARC Maintenance Documentation
 =================================
 
 This repository contains the source files and gh-pages for the HiSPARC maintenance documentation.
