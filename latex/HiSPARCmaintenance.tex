@@ -3,6 +3,7 @@
 \documentclass[a4paper,11pt,english]{sphinxmanual}
 \usepackage[utf8]{inputenc}
 \DeclareUnicodeCharacter{00A0}{\nobreakspace}
+\usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
 \usepackage{times}
@@ -13,7 +14,7 @@
 
 
 \title{HiSPARC Station Problem and Solutions Documentation}
-\date{April 09, 2013}
+\date{November 15, 2013}
 \release{0.2}
 \author{HiSPARC team}
 \newcommand{\sphinxlogo}{\includegraphics{logo.pdf}\par}
@@ -33,7 +34,7 @@
 
 \expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
 \expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
+\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
 \expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
 \expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
 \expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
@@ -44,7 +45,7 @@
 \expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
 \expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
 \expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.19,0.19,0.19}{##1}}}
+\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
 \expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
 \expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
 \expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
@@ -103,6 +104,9 @@
 \def\PYGZsh{\char`\#}
 \def\PYGZpc{\char`\%}
 \def\PYGZdl{\char`\$}
+\def\PYGZhy{\char`\-}
+\def\PYGZsq{\char`\'}
+\def\PYGZdq{\char`\"}
 \def\PYGZti{\char`\~}
 % for compatibility with earlier versions
 \def\PYGZat{@}
@@ -434,6 +438,24 @@ No data will be uploaded.
 \subsection{GPS}
 \label{known-issues:gps}
 
+\subsubsection{Firmware not loaded}
+\label{known-issues:firmware-not-loaded}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+No GPS appears in DSP Mon
+
+\item[{Nagios}] \leavevmode
+\item[{Determination}] \leavevmode
+This only occurs with HiSPARC III electronics when their firmware is not yet loaded, which is indicated by all LEDs on the unit being on.
+
+\item[{Solution}] \leavevmode
+Start the HiSPARC DAQ to load the firmware into the HiSPARC electronics.
+
+\item[{Effects}] \leavevmode
+No GPS recognized by DSP Mon.
+
+\end{description}\end{quote}
+
+
 \subsubsection{COM Port to high}
 \label{known-issues:com-port-to-high}\begin{quote}\begin{description}
 \item[{First Sign}] \leavevmode
@@ -472,6 +494,24 @@ Check the GPS cable for kinks or cuts, also check if the antenna is still proper
 
 \item[{Effects}] \leavevmode
 Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.
+
+\end{description}\end{quote}
+
+
+\subsubsection{Time offset}
+\label{known-issues:time-offset}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+No coincidences with nearby stations.
+
+\item[{Nagios}] \leavevmode
+\item[{Determination}] \leavevmode
+Open DSP Mon and check if the timing for the GPS is set to UTC or GPS, it should be GPS.
+
+\item[{Solution}] \leavevmode
+Set the GPS Timing to use GPS time.
+
+\item[{Effects}] \leavevmode
+There is a difference of \textasciitilde{}16 seconds between GPS en UTC time, resulting in offset timestamps if the wrong setting is chosen.
 
 \end{description}\end{quote}
 
@@ -598,6 +638,24 @@ Cover the detector with a light-tight blanket or foil. Now the extra peaks shoul
 Patch the light-leaking parts with new foil/tape.
 
 \item[{Effects}] \leavevmode
+\end{description}\end{quote}
+
+
+\subsubsection{Bad PMT base}
+\label{known-issues:bad-pmt-base}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+The current (mA) for one of the PMTs is very high (above 15 mA)
+
+\item[{Nagios}] \leavevmode
+\item[{Determination}] \leavevmode
+Look in the HiSPARC DAQ at the current used by the PMTs. If this is above 15 mA something if probably wrong.
+
+\item[{Solution}] \leavevmode
+Try lowering the High Voltage on the PMT, or turning it off for a day. If that does not help it may need to be replaced, contact your cluster coordinator.
+
+\item[{Effects}] \leavevmode
+The PMT will not function properly.
+
 \end{description}\end{quote}
 
 

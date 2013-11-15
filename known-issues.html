@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -15,7 +14,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '0.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -280,6 +279,25 @@ station-software.</p>
 </div>
 <div class="section" id="gps">
 <h3>GPS<a class="headerlink" href="#gps" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="firmware-not-loaded">
+<h4>Firmware not loaded<a class="headerlink" href="#firmware-not-loaded" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">No GPS appears in DSP Mon</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">This only occurs with HiSPARC III electronics when their firmware is not yet loaded, which is indicated by all LEDs on the unit being on.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Start the HiSPARC DAQ to load the firmware into the HiSPARC electronics.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">No GPS recognized by DSP Mon.</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="com-port-to-high">
 <h4>COM Port to high<a class="headerlink" href="#com-port-to-high" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
@@ -321,6 +339,25 @@ station-software.</p>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check the GPS cable for kinks or cuts, also check if the antenna is still properly attached. Once fixed the SV should rise and turn green, as well as the <tt class="code docutils literal"><span class="pre">Antenna</span> <span class="pre">Open</span></tt> status.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="time-offset">
+<h4>Time offset<a class="headerlink" href="#time-offset" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">No coincidences with nearby stations.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Open DSP Mon and check if the timing for the GPS is set to UTC or GPS, it should be GPS.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Set the GPS Timing to use GPS time.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">There is a difference of ~16 seconds between GPS en UTC time, resulting in offset timestamps if the wrong setting is chosen.</td>
 </tr>
 </tbody>
 </table>
@@ -453,6 +490,25 @@ electronics and hardware.</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="bad-pmt-base">
+<h4>Bad PMT base<a class="headerlink" href="#bad-pmt-base" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">The current (mA) for one of the PMTs is very high (above 15 mA)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Look in the HiSPARC DAQ at the current used by the PMTs. If this is above 15 mA something if probably wrong.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Try lowering the High Voltage on the PMT, or turning it off for a day. If that does not help it may need to be replaced, contact your cluster coordinator.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The PMT will not function properly.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="no-devices-found">
 <h3>No Devices Found<a class="headerlink" href="#no-devices-found" title="Permalink to this headline">¶</a></h3>
@@ -546,7 +602,7 @@ electronics and hardware.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2009-2012, HiSPARC.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
     </div>
   </body>
 </html>

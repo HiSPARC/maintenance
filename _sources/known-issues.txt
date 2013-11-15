@@ -48,6 +48,7 @@ Each problem described below has the following fields:
    .. :Fixed:
       :Keywords:
 
+
 Software
 ========
 
@@ -93,6 +94,7 @@ To many logs
 .. :Fixed:
    :Keywords:
 
+
 To many updaters
 ^^^^^^^^^^^^^^^^
 
@@ -124,6 +126,7 @@ Can not connect to buffer
 
 .. :Fixed:
    :Keywords:
+
 
 Not in DAQ Mode
 ^^^^^^^^^^^^^^^
@@ -183,6 +186,19 @@ Time difference to large
 GPS
 ---
 
+Firmware not loaded
+^^^^^^^^^^^^^^^^^^^
+
+:First Sign: No GPS appears in DSP Mon
+:Nagios: 
+:Determination: This only occurs with |hisparc| III electronics when their firmware is not yet loaded, which is indicated by all LEDs on the unit being on.
+:Solution: Start the |hisparc| DAQ to load the firmware into the |hisparc| electronics.
+:Effects: No GPS recognized by DSP Mon.
+
+.. :Fixed:
+   :Keywords:
+
+
 COM Port to high
 ^^^^^^^^^^^^^^^^
 
@@ -206,6 +222,19 @@ No antenna connected
 :Determination: Open DSP Mon and check the LED status of the :code:`Antenna Open`. It will be yellow while some of the other LEDs are green. Also all Signal Values (SV) will be 0.
 :Solution: Check the GPS cable for kinks or cuts, also check if the antenna is still properly attached. Once fixed the SV should rise and turn green, as well as the :code:`Antenna Open` status.
 :Effects: Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.
+
+.. :Fixed:
+   :Keywords:
+
+
+Time offset
+^^^^^^^^^^^
+
+:First Sign: No coincidences with nearby stations.
+:Nagios: 
+:Determination: Open DSP Mon and check if the timing for the GPS is set to UTC or GPS, it should be GPS.
+:Solution: Set the GPS Timing to use GPS time.
+:Effects: There is a difference of ~16 seconds between GPS en UTC time, resulting in offset timestamps if the wrong setting is chosen.
 
 .. :Fixed:
    :Keywords:
@@ -300,6 +329,19 @@ Light leak
 :Determination: Cover the detector with a light-tight blanket or foil. Now the extra peaks should disappear.
 :Solution: Patch the light-leaking parts with new foil/tape.
 :Effects: 
+
+.. :Fixed:
+   :Keywords:
+
+
+Bad PMT base
+^^^^^^^^^^^^
+
+:First Sign: The current (mA) for one of the PMTs is very high (above 15 mA)
+:Nagios:
+:Determination: Look in the |hisparc| DAQ at the current used by the PMTs. If this is above 15 mA something if probably wrong.
+:Solution: Try lowering the High Voltage on the PMT, or turning it off for a day. If that does not help it may need to be replaced, contact your cluster coordinator.
+:Effects: The PMT will not function properly.
 
 .. :Fixed:
    :Keywords:
