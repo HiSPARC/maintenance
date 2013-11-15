@@ -47,7 +47,10 @@
             
   <div class="section" id="known-issues">
 <h1>Known issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h1>
-<p>This is a list of known possible issues with HiSPARC stations. For each problem some steps are given which can be followed to determine if that problem is indeed occuring on your station. Possible Nagios Service warnings that might alert you to the problem are noted.</p>
+<p>This is a list of known possible issues with HiSPARC stations. For
+each problem some steps are given which can be followed to determine if
+that problem is indeed occuring on your station. Possible Nagios Service
+warnings that might alert you to the problem are noted.</p>
 <p>Here are filters to only show problems which cause a certain Nagios warning:
 <a class="reference external" href="?nagios=Buffersize">Buffer size</a>,
 <a class="reference external" href="?nagios=CPULoad">CPU Load</a>,
@@ -72,7 +75,8 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body">Nagios warnings that can be triggered.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">This is a small guide explaining how to make sure that the problem being described is what you are experiencing.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">This is a small guide explaining how to make sure that
+the problem being described is what you are experiencing.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">How to solve it.</td>
 </tr>
@@ -92,24 +96,38 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">When the <tt class="code docutils literal"><span class="pre">STARTHiSPARCSoftware</span></tt> program runs and the other programs (HiSPARC DAQ and Updater) start normally but the HiSPARC Monitor does not appear or closes instantly.</p>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">When the <tt class="code docutils literal"><span class="pre">STARTHiSPARCSoftware</span></tt> program runs and the
+other programs (HiSPARC DAQ and Updater) start normally
+but the HiSPARC Monitor does not appear or closes
+instantly.</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><p class="first"><strong>EventRate</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>, <strong>TriggerRate</strong>, and possibly <strong>Buffer size</strong></p>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><p class="first"><strong>EventRate</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>,
+<strong>TriggerRate</strong>, and possibly <strong>Buffer size</strong></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
-<li>Look in <tt class="code docutils literal"><span class="pre">hisparc/persistent/logs/src/</span></tt> for the latest log file.</li>
-<li>Check if there is a line that contains the text <tt class="code docutils literal"><span class="pre">Error:</span> <span class="pre">unable</span> <span class="pre">to</span> <span class="pre">open</span> <span class="pre">database</span> <span class="pre">file</span></tt>.</li>
-<li>Look in the <tt class="code docutils literal"><span class="pre">hisparc/persistent/data/</span></tt> directory for a <tt class="code docutils literal"><span class="pre">hsmonitor</span></tt> folder.</li>
-<li>If it does not exist than go to the solution, otherwise this is not the problem.</li>
+<li>Look in <tt class="code docutils literal"><span class="pre">hisparc/persistent/logs/src/</span></tt> for the latest log
+file.</li>
+<li>Check if there is a line that contains the text <tt class="code docutils literal"><span class="pre">Error:</span>
+<span class="pre">unable</span> <span class="pre">to</span> <span class="pre">open</span> <span class="pre">database</span> <span class="pre">file</span></tt>.</li>
+<li>Look in the <tt class="code docutils literal"><span class="pre">hisparc/persistent/data/</span></tt> directory for a
+<tt class="code docutils literal"><span class="pre">hsmonitor</span></tt> folder.</li>
+<li>If it does not exist than go to the solution, otherwise this is
+not the problem.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Create the missing <tt class="code docutils literal"><span class="pre">hsmonitor</span></tt> directory in <tt class="code docutils literal"><span class="pre">hisparc/persistent/data</span></tt>.</p>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Create the missing <tt class="code docutils literal"><span class="pre">hsmonitor</span></tt> directory in
+<tt class="code docutils literal"><span class="pre">hisparc/persistent/data</span></tt>.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">The missing directory causes the HiSPARC Monitor to be unable to store events in its SQLite database, preventing it from sending events to the Nikhef datastore. Note that the HiSPARC DAQ should be unaffected. No events should be lost, the DAQ will store events in its MySQL database until the hard disc fills up.</p>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">The missing directory causes the HiSPARC Monitor to be
+unable to store events in its SQLite database, preventing it
+from sending events to the Nikhef datastore. Note that the
+HiSPARC DAQ should be unaffected. No events should be lost,
+the DAQ will store events in its MySQL database until the hard
+disc fills up.</p>
 </td>
 </tr>
 </tbody>
@@ -132,15 +150,21 @@ station-software.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
 <li>Look in <tt class="code docutils literal"><span class="pre">hisparc/persistent/logs/</span></tt>.</li>
-<li>Check the size of the src directory by right-clicking on it and choosing &#8216;Properties&#8217;.</li>
+<li>Check the size of the src directory by right-clicking on it and
+choosing &#8216;Properties&#8217;.</li>
 <li>Check if this is a significant fraction of the total disc space.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Remove all logs from the src directory except for the current one (present date in <tt class="code docutils literal"><span class="pre">dd-mm-yyyy.log</span></tt>). Select all (ctrl + a) logs in <tt class="code docutils literal"><span class="pre">hisparc/persistent/logs/src</span></tt>. Deselect the current one (ctrl + click). Remove them using shift + delete (to bypass the Recycle Bin)</p>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Remove all logs from the src directory except for the current
+one (present date in <tt class="code docutils literal"><span class="pre">dd-mm-yyyy.log</span></tt>). Select all
+(ctrl + a) logs in <tt class="code docutils literal"><span class="pre">hisparc/persistent/logs/src</span></tt>.
+Deselect the current one (ctrl + click). Remove them using
+shift + delete (to bypass the Recycle Bin)</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">If the disc is full the HiSPARC daq can not store events in the database, preventing the station from storing more events.</p>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">If the disc is full the HiSPARC daq can not store events in
+the database, preventing the station from storing more events.</p>
 </td>
 </tr>
 </tbody>
@@ -160,16 +184,21 @@ station-software.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
 <li>Look in <tt class="code docutils literal"><span class="pre">hisparc/persistent/downloads/</span></tt>.</li>
-<li>There should be some adminUpdater_v##.zip and userUnpacker_v##.exe files there.</li>
-<li>By right-clicking them you can see their file size is of the order of 100 MB.</li>
+<li>There should be some adminUpdater_v##.zip and
+userUnpacker_v##.exe files there.</li>
+<li>By right-clicking them you can see their file size is of the order
+of 100 MB.</li>
 <li>If there are many they can take up some space.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Remove all userUnpacker and adminUpdater files except the newest ones. Do this by selecting them and pressing shift + delete to remove them directly.</p>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Remove all userUnpacker and adminUpdater files except the
+newest ones. Do this by selecting them and pressing shift +
+delete to remove them directly.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">If the disc is full the HiSPARC daq can not store events in the database, preventing the station from storing more events.</p>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">If the disc is full the HiSPARC daq can not store events in
+the database, preventing the station from storing more events.</p>
 </td>
 </tr>
 </tbody>
@@ -188,7 +217,8 @@ station-software.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">From the Start menu start odbcad32.exe. Check if the hisparc buffer is there.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">From the Start menu start odbcad32.exe. Check if the
+hisparc buffer is there.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"></td>
 </tr>
@@ -207,11 +237,13 @@ station-software.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Look at the program HiSPARC DAQ, see if the button in the middle shows &#8216;DAQ Mode&#8217;.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Look at the program HiSPARC DAQ, see if the button in the
+middle shows &#8216;DAQ Mode&#8217;.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Click the &#8216;DAQ Mode&#8217; button in the HiSPARC DAQ.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">When the HiSPARC DAQ is not in DAQ Mode it will not store triggered events.</td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">When the HiSPARC DAQ is not in DAQ Mode it will not store
+triggered events.</td>
 </tr>
 </tbody>
 </table>
@@ -225,15 +257,18 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Uncatched</span> <span class="pre">exception</span> <span class="pre">in</span> <span class="pre">job:</span> <span class="pre">need</span> <span class="pre">more</span> <span class="pre">than</span> <span class="pre">1</span> <span class="pre">value</span> <span class="pre">to</span> <span class="pre">unpack.</span> <span class="pre">Restarting...</span></tt></td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Uncatched</span> <span class="pre">exception</span>
+<span class="pre">in</span> <span class="pre">job:</span> <span class="pre">need</span> <span class="pre">more</span> <span class="pre">than</span> <span class="pre">1</span> <span class="pre">value</span> <span class="pre">to</span> <span class="pre">unpack.</span> <span class="pre">Restarting...</span></tt></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Check in the file <tt class="code docutils literal"><span class="pre">hisparc/persistent/configuration/HisparcII.ini</span></tt> for blank lines</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Check for blank lines in the file
+<tt class="code docutils literal"><span class="pre">hisparc/persistent/configuration/HisparcII.ini</span></tt>.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Remove any blank lines from HisparcII.ini</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.</td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Errors in the HiSPARC Monitor and no TriggerRate updates for
+Nagios.</td>
 </tr>
 </tbody>
 </table>
@@ -244,15 +279,21 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Uncatched</span> <span class="pre">exception</span> <span class="pre">in</span> <span class="pre">job:</span> <span class="pre">invalid</span> <span class="pre">literal</span> <span class="pre">for</span> <span class="pre">int()</span> <span class="pre">with</span> <span class="pre">base</span> <span class="pre">10:</span> <span class="pre">'difference</span> <span class="pre">too</span> <span class="pre">large'.</span> <span class="pre">Restarting...</span></tt></td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Uncatched</span> <span class="pre">exception</span> <span class="pre">in</span> <span class="pre">job:</span>
+<span class="pre">invalid</span> <span class="pre">literal</span> <span class="pre">for</span> <span class="pre">int()</span> <span class="pre">with</span> <span class="pre">base</span> <span class="pre">10:</span> <span class="pre">'difference</span> <span class="pre">too</span>
+<span class="pre">large'.</span> <span class="pre">Restarting...</span></tt></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Check in the file <tt class="code docutils literal"><span class="pre">hisparc/persistent/configuration/HisparcII.ini</span></tt> for the text <tt class="code docutils literal"><span class="pre">difference</span> <span class="pre">to</span> <span class="pre">large</span></tt>.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Check for the text <tt class="code docutils literal"><span class="pre">difference</span> <span class="pre">to</span> <span class="pre">large</span></tt> in
+<tt class="code docutils literal"><span class="pre">hisparc/persistent/configuration/HisparcII.ini</span></tt>.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check the PC time, make sure that it is set to the current time. Check the GPS settings, make sure that it is working and showing the correct GPS time.</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check the PC time, make sure that it is set to the current
+time. Check the GPS settings, make sure that it is working
+and showing the correct GPS time.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Errors in the HiSPARC Monitor and no TriggerRate updates for Nagios.</td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Errors in the HiSPARC Monitor and no TriggerRate updates for
+Nagios.</td>
 </tr>
 </tbody>
 </table>
@@ -263,13 +304,17 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Error</span> <span class="pre">Uploader:</span> <span class="pre">..</span> <span class="pre">Return</span> <span class="pre">code:</span> <span class="pre">400</span></tt></td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Errors in the HiSPARC Monitor: <tt class="code docutils literal"><span class="pre">Error</span> <span class="pre">Uploader:</span> <span class="pre">..</span> <span class="pre">Return</span>
+<span class="pre">code:</span> <span class="pre">400</span></tt></td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>StorageSize</strong>, <strong>TriggerRate</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Ensure that all required variables are being uploaded: station_id, password, data and the checksum.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Ensure that all required variables are being uploaded:
+station_id, password, data and the checksum.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check that the station number and password are entered correctly in the configuration file: <tt class="code docutils literal"><span class="pre">hisparc/persistent/configuration/config.ini</span></tt>.</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check that the station number and password are entered
+correctly in the configuration file:
+<tt class="code docutils literal"><span class="pre">hisparc/persistent/configuration/config.ini</span></tt>.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">No data will be uploaded.</td>
 </tr>
@@ -289,9 +334,12 @@ station-software.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">This only occurs with HiSPARC III electronics when their firmware is not yet loaded, which is indicated by all LEDs on the unit being on.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">This only occurs with HiSPARC III electronics when
+their firmware is not yet loaded, which is indicated by
+all LEDs on the unit being on.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Start the HiSPARC DAQ to load the firmware into the HiSPARC electronics.</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Start the HiSPARC DAQ to load the firmware into the
+HiSPARC electronics.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">No GPS recognized by DSP Mon.</td>
 </tr>
@@ -304,21 +352,26 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">The GPS date attatched to events is very inaccurate, like ~1999 or ~2019.</p>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">The GPS date attatched to events is very inaccurate, like
+~1999 or ~2019.</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><ul class="first simple">
-<li>Open Configuration -&gt; System -&gt; Hardware -&gt; Browse Devices -&gt; Com Ports</li>
-<li>If the Com ports number higher than 32 the DSP Mon GPS program can not connect to the GPS</li>
+<li>Open Configuration -&gt; System -&gt; Hardware -&gt; Browse Devices -&gt; Com
+Ports.</li>
+<li>If the Com ports number higher than 32 the DSP Mon GPS program can
+not connect to the GPS.</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Lower the COM Port Number, by direct reassignment, use the com_port_reassign utility.</p>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><p class="first">Lower the COM Port Number, by direct reassignment, use the
+com_port_reassign utility.</p>
 </td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">No GPS recognized by DSP Mon, this causes data to get dates like 1999 or 2019, making the data unusable.</p>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"><p class="first last">No GPS recognized by DSP Mon, this causes data to get dates
+like 1999 or 2019, making the data unusable.</p>
 </td>
 </tr>
 </tbody>
@@ -330,15 +383,24 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">The GPS get no satelite signals, seen in the Satelites tab of the HiSPARC DAQ.</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">The GPS get no satelite signals, seen in the Satelites tab
+of the HiSPARC DAQ.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Open DSP Mon and check the LED status of the <tt class="code docutils literal"><span class="pre">Antenna</span> <span class="pre">Open</span></tt>. It will be yellow while some of the other LEDs are green. Also all Signal Values (SV) will be 0.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Open DSP Mon and check the LED status of the
+<tt class="code docutils literal"><span class="pre">Antenna</span> <span class="pre">Open</span></tt>. It will be yellow while some of
+the other LEDs are green. Also all Signal Values (SV)
+will be 0.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check the GPS cable for kinks or cuts, also check if the antenna is still properly attached. Once fixed the SV should rise and turn green, as well as the <tt class="code docutils literal"><span class="pre">Antenna</span> <span class="pre">Open</span></tt> status.</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Check the GPS cable for kinks or cuts, also check if the
+antenna is still properly attached. Once fixed the SV should
+rise and turn green, as well as the <tt class="code docutils literal"><span class="pre">Antenna</span> <span class="pre">Open</span></tt>
+status.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Makes the GPS unable to determine the correct date. Is falls back to some other date like 1999 or 2019, making the data unusable.</td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Makes the GPS unable to determine the correct date. Is falls
+back to some other date like 1999 or 2019, making the data
+unusable.</td>
 </tr>
 </tbody>
 </table>
@@ -353,11 +415,13 @@ station-software.</p>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Open DSP Mon and check if the timing for the GPS is set to UTC or GPS, it should be GPS.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Open DSP Mon and check if the timing for the GPS is set
+to UTC or GPS, it should be GPS.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Set the GPS Timing to use GPS time.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">There is a difference of ~16 seconds between GPS en UTC time, resulting in offset timestamps if the wrong setting is chosen.</td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">There is a difference of ~16 seconds between GPS en UTC time,
+resulting in offset timestamps if the wrong setting is chosen.</td>
 </tr>
 </tbody>
 </table>
@@ -371,13 +435,17 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">No data is uploaded, the local storage fills with events</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">No data is uploaded, the local storage fills with events.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>StorageSize</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions) to check if a proxy is required.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions)
+to check if a proxy is required.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions) to check Proxy settings, if it finds proxy settings for the system it can use these to configure them for Python. Press the Write Config.</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions) to
+check Proxy settings, if it finds proxy settings for the
+system it can use these to configure them for Python. Press
+the Write Config.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
 </tr>
@@ -393,15 +461,20 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">All Status indicators on Nagios are CRITICAL</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">All Status indicators on Nagios are CRITICAL.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>Host</strong>, <strong>Buffer size</strong>, <strong>CPU Load</strong>, <strong>Drive Space</strong>, <strong>EventRate</strong>, <strong>Labview Usage</strong>, <strong>Memory Usage</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>, <strong>TriggerRate</strong>, <strong>Uptime</strong></td>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>Host</strong>, <strong>Buffer size</strong>, <strong>CPU Load</strong>, <strong>Drive Space</strong>,
+<strong>EventRate</strong>, <strong>Labview Usage</strong>, <strong>Memory Usage</strong>,
+<strong>StorageGrowth</strong>, <strong>StorageSize</strong>, <strong>TriggerRate</strong>, <strong>Uptime</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions) to check the VPN status.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Run Diagnostics (LocalDiagnosticTool in older versions)
+to check the VPN status.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Open TCP port 443 in the firewalls</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Open TCP port 443 in the firewalls.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Nagios will be unable to check the status of all services. Moreover, the HiSPARC support will be unable to log into the PC remotely to assist in case of problems.</td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Nagios will be unable to check the status of all services.
+Moreover, the HiSPARC support will be unable to log into the
+PC remotely to assist in case of problems.</td>
 </tr>
 </tbody>
 </table>
@@ -412,15 +485,20 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">No data is uploaded, the local storage fills with events</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">No data is uploaded, the local storage fills with events.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>StorageSize</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Try opening a website in a browser on the detector PC, preferably www.nikhef.nl, if this fails then web traffic is blocked. If the browser has no problems, then look at the <a class="reference internal" href="#proxy-not-set">Proxy not set</a> issue.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Try opening a website in a browser on the detector PC,
+preferably www.nikhef.nl, if this fails then web traffic
+is blocked. If the browser has no problems, then look at
+the <a class="reference internal" href="#proxy-not-set">Proxy not set</a> issue.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Open port 80 in the firewalls</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The Uploader of the HiSPARC Monitor uses a HTTP POST Request to send data to our datastore, but this will be blocked if port 80 is closed.</td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The Uploader of the HiSPARC Monitor uses a HTTP POST Request
+to send data to our datastore, but this will be blocked if
+port 80 is closed.</td>
 </tr>
 </tbody>
 </table>
@@ -431,15 +509,20 @@ station-software.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">An update is available but the software can not download it</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">An update is available but the software can not download it.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Try opening the link to the updater, shown in the HiSPARC Updater, in a webbrowser. If this fails then .exe files are probably blocked by the network.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Try opening the link to the updater, shown in the
+HiSPARC Updater, in a webbrowser. If this fails then
+.exe files are probably blocked by the network.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Allow downloading of .exe files through the firewall</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Allow downloading of .exe files through the firewall.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The Updater will see there is an update and quit the HiSPARC DAQ. However when the update fail it will restart the HiSPARC software, but then see there is an update and try again, it will be stuck in this loop.</td>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The Updater will see there is an update and quit the HiSPARC
+DAQ. However when the update fail it will restart the
+HiSPARC software, but then see there is an update and try
+again, it will be stuck in this loop.</td>
 </tr>
 </tbody>
 </table>
@@ -458,13 +541,16 @@ electronics and hardware.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">HiSPARC DAQ might frequently loose the connection to the HiSPARC electronics or there will be fluctuations (sine) over the signal</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">HiSPARC DAQ might frequently loose the connection to the
+HiSPARC electronics or there will be fluctuations (sine)
+over the signal.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Replace the power supply with a new one and see if the problem disappears</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Replace the power supply with a new one and see if the
+problem disappears.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Replace the power supply</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Replace the power supply.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body"></td>
 </tr>
@@ -477,11 +563,14 @@ electronics and hardware.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Many small peaks (short pulses) in the signals in the HiSPARC DAQ, also the number of events will increase during day time (due to sunlight)</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Many small peaks (short pulses) in the signals in the
+HiSPARC DAQ, also the number of events will increase
+during day time (due to sunlight)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>TriggerRate</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Cover the detector with a light-tight blanket or foil. Now the extra peaks should disappear.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Cover the detector with a light-tight blanket or foil.
+Now the extra peaks should disappear.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Patch the light-leaking parts with new foil/tape.</td>
 </tr>
@@ -496,13 +585,16 @@ electronics and hardware.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">The current (mA) for one of the PMTs is very high (above 15 mA)</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">The current for one of the PMTs is very high (above 15 mA).</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Look in the HiSPARC DAQ at the current used by the PMTs. If this is above 15 mA something if probably wrong.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Look in the HiSPARC DAQ at the current used by the
+PMTs. If this is above 15 mA something if probably wrong.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Try lowering the High Voltage on the PMT, or turning it off for a day. If that does not help it may need to be replaced, contact your cluster coordinator.</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Try lowering the High Voltage on the PMT, or turning it off
+for a day. If that does not help it may need to be replaced,
+contact your cluster coordinator.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">The PMT will not function properly.</td>
 </tr>
@@ -518,13 +610,18 @@ electronics and hardware.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">HiSPARC DAQ s unable to connect to the HiSPARC electronics</td>
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">HiSPARC DAQ is unable to connect to the HiSPARC
+electronics.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>EventRate</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>, <strong>TriggerRate</strong></td>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>EventRate</strong>, <strong>StorageGrowth</strong>, <strong>StorageSize</strong>,
+<strong>TriggerRate</strong></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Start the HiSPARC DAQ, it will show a message that no device is found. Check if the LEDs on the HiSPARC electronics box are lit.</td>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Start the HiSPARC DAQ, it will show a message that no
+device is found. Check if the LEDs on the HiSPARC
+electronics box are lit.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Connect the HiSPARC electronic box via the provided Power supply to a power outlet.</td>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Connect the HiSPARC electronic box via the provided Power
+supply to a power outlet.</td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">No data can be taken.</td>
 </tr>
