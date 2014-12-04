@@ -2,7 +2,6 @@
 
 .. include:: subst.inc
 
-############
 Known issues
 ############
 
@@ -12,12 +11,12 @@ that problem is indeed occuring on your station. Possible Nagios Service
 warnings that might alert you to the problem are noted.
 
 Here are filters to only show problems which cause a certain Nagios warning:
-`Buffer size <?nagios=Buffer size>`_,
-`CPU Load <?nagios=CPU Load>`_,
-`Drive Space <?nagios=Drive Space>`_,
+`Buffer size <?nagios=Buffer%20size>`_,
+`CPU Load <?nagios=CPU%20Load>`_,
+`Drive Space <?nagios=Drive%20Space>`_,
 `EventRate <?nagios=EventRate>`_,
-`Labview Usage <?nagios=Labview Usage>`_,
-`Memory Usage <?nagios=Memory Usage>`_,
+`Labview Usage <?nagios=Labview%20Usage>`_,
+`Memory Usage <?nagios=Memory%20Usage>`_,
 `StorageGrowth <?nagios=StorageGrowth>`_,
 `StorageSize <?nagios=StorageSize>`_,
 `TriggerRate <?nagios=TriggerRate>`_,
@@ -349,6 +348,37 @@ Proxy not set
 
 Firewall
 --------
+
+Incoming firewall rules
+^^^^^^^^^^^^^^^^^^^^^^^
+
+:First Sign: All active Nagios checks are critical.
+:Nagios: **Host**, **Buffer size**, **CPU Load**, **Drive Space**,
+         **Labview Usage**, **Memory Usage**, **Uptime**
+:Determination: All of the above Nagios services are crtitical eventhough
+                the software is running properly.
+:Solution:
+    * Open the Windows Control Panel, go to Windows Firewall and
+      Choose Advanced settings from the sidebar.
+    * If required enter an administrator password.
+    * Go the the Inbound Rules.
+    * Look for the three rules that start with |hisparc|.
+    * Open the Properties window for these rules, go the the Advanced tab.
+    * Enable the rules for both the Private and Public profiles.
+    * Next look for the rules called
+      :code:`File and Printer Sharing (Echo Request - ICMPv4-In)`.
+    * Enable those if they are not yet enabled and also ensure they
+      are enabled for both Profiles.
+
+.. image:: images/firewall_rules.png
+   :width: 600px
+   :alt: Firewall settings
+   :align: center
+
+:Effects: Nagios can not monitor the PC status, VNC may also be blocked.
+
+.. :Fixed:
+   :Keywords:
 
 VPN blocked
 ^^^^^^^^^^^
