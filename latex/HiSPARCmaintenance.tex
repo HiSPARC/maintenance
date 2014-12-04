@@ -14,7 +14,7 @@
 
 
 \title{HiSPARC Station Problem and Solutions Documentation}
-\date{November 15, 2013}
+\date{December 04, 2014}
 \release{0.2}
 \author{HiSPARC team}
 \newcommand{\sphinxlogo}{\includegraphics{logo.pdf}\par}
@@ -113,6 +113,8 @@
 \def\PYGZlb{[}
 \def\PYGZrb{]}
 \makeatother
+
+\renewcommand\PYGZsq{\textquotesingle}
 
 \begin{document}
 
@@ -480,6 +482,36 @@ No data will be uploaded.
 \end{description}\end{quote}
 
 
+\subsubsection{Access denied for MySQL buffer}
+\label{known-issues:access-denied-for-mysql-buffer}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+Error in Nagios: \code{Buffer size: Access denied for user
+'buffer'@'localhost'}
+
+\item[{Nagios}] \leavevmode
+\textbf{Buffer size}
+
+\item[{Determination}] \leavevmode
+Check if the file \code{hisparc/user/diagnosticchecks/checks.py}
+contains only one path to a CONFIG\_INI:
+\code{CONFIG\_INI = "../../user/hsmonitor/data/config.ini"}.
+
+\item[{Solution}] \leavevmode
+Open the file \code{hisparc/user/diagnosticchecks/checks.py}
+in a text editor like NotePad and add the following line after
+the line starting with \code{CONFIG\_INI = "../..}:
+\code{CONFIG\_INI2 = "../../user/hsmonitor/data/config-password.ini"}.
+Finally several lines later is the following code:
+\code{config.read(CONFIG\_INI)}, replace this by:
+\code{config.read({[}CONFIG\_INI, CONFIG\_INI2{]})}.
+Save the file.
+
+\item[{Effects}] \leavevmode
+Nagios can not monitor the Buffer size.
+
+\end{description}\end{quote}
+
+
 \subsection{GPS}
 \label{known-issues:gps}
 
@@ -607,6 +639,59 @@ the Write Config.
 
 \subsection{Firewall}
 \label{known-issues:firewall}
+
+\subsubsection{Incoming firewall rules}
+\label{known-issues:incoming-firewall-rules}\begin{quote}\begin{description}
+\item[{First Sign}] \leavevmode
+All active Nagios checks are critical.
+
+\item[{Nagios}] \leavevmode
+\textbf{Host}, \textbf{Buffer size}, \textbf{CPU Load}, \textbf{Drive Space},
+\textbf{Labview Usage}, \textbf{Memory Usage}, \textbf{Uptime}
+
+\item[{Determination}] \leavevmode
+All of the above Nagios services are crtitical eventhough
+the software is running properly.
+
+\item[{Solution}] \leavevmode\begin{itemize}
+\item {} 
+Open the Windows Control Panel, go to Windows Firewall and
+Choose Advanced settings from the sidebar.
+
+\item {} 
+If required enter an administrator password.
+
+\item {} 
+Go the the Inbound Rules.
+
+\item {} 
+Look for the three rules that start with HiSPARC.
+
+\item {} 
+Open the Properties window for these rules, go the the Advanced tab.
+
+\item {} 
+Enable the rules for both the Private and Public profiles.
+
+\item {} 
+Next look for the rules called
+\code{File and Printer Sharing (Echo Request - ICMPv4-In)}.
+
+\item {} 
+Enable those if they are not yet enabled and also ensure they
+are enabled for both Profiles.
+
+\end{itemize}
+
+\end{description}\end{quote}
+
+{\hfill\includegraphics{firewall_rules.png}\hfill}
+\begin{quote}\begin{description}
+\item[{Effects}] \leavevmode
+Nagios can not monitor the PC status, VNC may also be blocked.
+
+\end{description}\end{quote}
+
 
 \subsubsection{VPN blocked}
 \label{known-issues:vpn-blocked}\begin{quote}\begin{description}

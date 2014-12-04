@@ -15,21 +15,23 @@
 \contentsline {subsubsection}{Malformed HisparcII.ini}{9}{subsubsection*.8}
 \contentsline {subsubsection}{Time difference to large}{9}{subsubsection*.9}
 \contentsline {subsubsection}{400 Bad Request}{10}{subsubsection*.10}
+\contentsline {subsubsection}{Access denied for MySQL buffer}{10}{subsubsection*.11}
 \contentsline {subsection}{\numberline {3.1.5}GPS}{10}{subsection.3.1.5}
-\contentsline {subsubsection}{Firmware not loaded}{10}{subsubsection*.11}
-\contentsline {subsubsection}{COM Port to high}{10}{subsubsection*.12}
-\contentsline {subsubsection}{No antenna connected}{11}{subsubsection*.13}
-\contentsline {subsubsection}{Time offset}{11}{subsubsection*.14}
-\contentsline {subsection}{\numberline {3.1.6}Uploading}{11}{subsection.3.1.6}
-\contentsline {subsubsection}{Proxy not set}{11}{subsubsection*.15}
-\contentsline {subsection}{\numberline {3.1.7}Firewall}{11}{subsection.3.1.7}
-\contentsline {subsubsection}{VPN blocked}{11}{subsubsection*.16}
-\contentsline {subsubsection}{Web blocked}{12}{subsubsection*.17}
-\contentsline {subsubsection}{.exe blocked}{12}{subsubsection*.18}
-\contentsline {section}{\numberline {3.2}Hardware}{12}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Bad signals}{12}{subsection.3.2.1}
-\contentsline {subsubsection}{Bad power supply}{12}{subsubsection*.19}
-\contentsline {subsubsection}{Light leak}{13}{subsubsection*.20}
-\contentsline {subsubsection}{Bad PMT base}{13}{subsubsection*.21}
-\contentsline {subsection}{\numberline {3.2.2}No Devices Found}{13}{subsection.3.2.2}
-\contentsline {subsubsection}{Connect to power}{13}{subsubsection*.22}
+\contentsline {subsubsection}{Firmware not loaded}{10}{subsubsection*.12}
+\contentsline {subsubsection}{COM Port to high}{11}{subsubsection*.13}
+\contentsline {subsubsection}{No antenna connected}{11}{subsubsection*.14}
+\contentsline {subsubsection}{Time offset}{11}{subsubsection*.15}
+\contentsline {subsection}{\numberline {3.1.6}Uploading}{12}{subsection.3.1.6}
+\contentsline {subsubsection}{Proxy not set}{12}{subsubsection*.16}
+\contentsline {subsection}{\numberline {3.1.7}Firewall}{12}{subsection.3.1.7}
+\contentsline {subsubsection}{Incoming firewall rules}{12}{subsubsection*.17}
+\contentsline {subsubsection}{VPN blocked}{13}{subsubsection*.18}
+\contentsline {subsubsection}{Web blocked}{13}{subsubsection*.19}
+\contentsline {subsubsection}{.exe blocked}{13}{subsubsection*.20}
+\contentsline {section}{\numberline {3.2}Hardware}{13}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Bad signals}{14}{subsection.3.2.1}
+\contentsline {subsubsection}{Bad power supply}{14}{subsubsection*.21}
+\contentsline {subsubsection}{Light leak}{14}{subsubsection*.22}
+\contentsline {subsubsection}{Bad PMT base}{14}{subsubsection*.23}
+\contentsline {subsection}{\numberline {3.2.2}No Devices Found}{14}{subsection.3.2.2}
+\contentsline {subsubsection}{Connect to power}{14}{subsubsection*.24}

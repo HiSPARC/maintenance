@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.11.4)  15 NOV 2013 12:47
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.12.22)  4 DEC 2014 17:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -496,7 +496,7 @@ Package: titlesec 2011/12/15 v2.10.0 Sectioning titles
 \titlewidthfirst=\dimen110
 )
 (./tabulary.sty
-Package: tabulary 2007/10/02 v0.9 tabulary package (DPC)
+Package: tabulary 2008/12/01 v0.9 tabulary package (DPC)
  (/usr/local/texlive/2013/texmf-dist/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen111
@@ -635,6 +635,13 @@ Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/parskip/parskip.sty
 Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/base/alltt.sty
+Package: alltt 1997/06/16 v2.0g defines alltt environment
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/upquote/upquote.sty
+Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
+tim
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
@@ -796,29 +803,29 @@ Writing index file HiSPARCmaintenance.idx
 (./HiSPARCmaintenance.aux)
 \openout1 = `HiSPARCmaintenance.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 117.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 117.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 119.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 119.
 
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 117.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 119.
+LaTeX Font Info:    ... okay on input line 119.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 119.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -852,7 +859,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box41
-Package hyperref Info: Link coloring ON on input line 117.
+Package hyperref Info: Link coloring ON on input line 119.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -862,43 +869,43 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count130
 )
-LaTeX Info: Redefining \ref on input line 117.
-LaTeX Info: Redefining \pageref on input line 117.
-LaTeX Info: Redefining \nameref on input line 117.
+LaTeX Info: Redefining \ref on input line 119.
+LaTeX Info: Redefining \pageref on input line 119.
+LaTeX Info: Redefining \nameref on input line 119.
 
 (./HiSPARCmaintenance.out) (./HiSPARCmaintenance.out)
 \@outlinefile=\write6
 \openout6 = `HiSPARCmaintenance.out'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 120--120
+Underfull \hbox (badness 10000) in paragraph at lines 122--122
 
  []
 
 <logo.pdf, id=25, 148.68349pt x 135.05257pt>
 File: logo.pdf Graphic file (type pdf)
  <use logo.pdf>
-Package pdftex.def Info: logo.pdf used on input line 120.
+Package pdftex.def Info: logo.pdf used on input line 122.
 (pdftex.def)             Requested size: 148.6831pt x 135.05223pt.
 File: logo.pdf Graphic file (type pdf)
  <use logo.pdf>
-Package pdftex.def Info: logo.pdf used on input line 120.
+Package pdftex.def Info: logo.pdf used on input line 122.
 (pdftex.def)             Requested size: 148.6831pt x 135.05223pt.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 120.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 122.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 120.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 122.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <17.28> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 120.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 122.
 LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/it' tried instead on input line 120.
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 122.
 LaTeX Font Info:    Font shape `T1/phv/b/it' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/sl' tried instead on input line 120.
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 122.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <17.28> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 120.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 122.
 <<ot1.cmap>><<oml.cmap>><<oms.cmap>><<omx.cmap>> [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./logo.
@@ -914,20 +921,10 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 
 Adding blank page after the table of contents.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 120.
-pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.120 \tableofcontents
-                       [1
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 122.
+[1
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.120 \tableofcontents
-                       [2]
+] [2]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -941,26 +938,26 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 ]
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 134.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 136.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 134.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 136.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 134.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 136.
 [3] [4
 
 ]
 Chapter 2.
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 145.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 147.
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-Overfull \hbox (35.54617pt too wide) in paragraph at lines 164--164
+Overfull \hbox (35.54617pt too wide) in paragraph at lines 166--166
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--164
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
 
  []
 
@@ -969,55 +966,107 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--164
 ]
 Chapter 3.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 243.
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 249.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 245.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 251.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 ) [7]
-Underfull \hbox (badness 5908) in paragraph at lines 316--322
+Underfull \hbox (badness 5908) in paragraph at lines 318--324
 []\T1/ptm/m/n/10.95 Remove all logs from the src di-rec-tory ex-cept for the cu
 r-rent one
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 316--322
+Underfull \hbox (badness 10000) in paragraph at lines 318--324
 \T1/ptm/m/n/10.95 (present date in \T1/pcr/m/n/10.95 dd-mm-yyyy.log\T1/ptm/m/n/
 10.95 ). Se-lect all (ctrl + a) logs in
  []
 
 [8]
-Overfull \hbox (116.07497pt too wide) in paragraph at lines 419--422
+Overfull \hbox (116.07497pt too wide) in paragraph at lines 421--424
 []\T1/ptm/m/n/10.95 Check for blank lines in the file \T1/pcr/m/n/10.95 hisparc
 /persistent/configuration/HisparcII.ini\T1/ptm/m/n/10.95 . 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 435--439
+Underfull \hbox (badness 10000) in paragraph at lines 437--441
 \T1/pcr/m/n/10.95 invalid literal for int() with base 10: 'difference too
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 443--446
+Underfull \hbox (badness 10000) in paragraph at lines 445--448
 []\T1/ptm/m/n/10.95 Check for the text \T1/pcr/m/n/10.95 difference to large \T
 1/ptm/m/n/10.95 in
  []
 
-[9] [10] [11] [12] (./HiSPARCmaintenance.ind)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 785.
- [13]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 785.
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 487--490
+[]\T1/ptm/m/n/10.95 Error in Na-gios: \T1/pcr/m/n/10.95 Buffer size: Access den
+ied for user
+ []
+
+
+Overfull \hbox (1.49492pt too wide) in paragraph at lines 494--498
+[]\T1/ptm/m/n/10.95 Check if the file \T1/pcr/m/n/10.95 hisparc/user/diagnostic
+checks/checks.py
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 494--498
+\T1/ptm/m/n/10.95 con-tains only one path to a CON-FIG_INI: \T1/pcr/m/n/10.95 C
+ONFIG_INI =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--508
+[]\T1/ptm/m/n/10.95 Open the file \T1/pcr/m/n/10.95 hisparc/user/diagnosticchec
+ks/checks.py
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--508
+\T1/ptm/m/n/10.95 in a text ed-i-tor like NotePad and add the fol-low-ing line 
+af-ter the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--508
+\T1/ptm/m/n/10.95 line start-ing with \T1/pcr/m/n/10.95 CONFIG_INI = "../..\T1/
+ptm/m/n/10.95 : \T1/pcr/m/n/10.95 CONFIG_INI2 =
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 499--508
+\T1/pcr/m/n/10.95 "../../user/hsmonitor/data/config-password.ini"\T1/ptm/m/n/10
+.95 . Fi-nally
+ []
+
+[10] [11] <firewall_rules.png, id=139, 803.0pt x 194.7275pt>
+File: firewall_rules.png Graphic file (type png)
+
+<use firewall_rules.png>
+Package pdftex.def Info: firewall_rules.png used on input line 688.
+(pdftex.def)             Requested size: 802.99805pt x 194.727pt.
+File: firewall_rules.png Graphic file (type png)
+ <use firewall_rules.png>
+Package pdftex.def Info: firewall_rules.png used on input line 688.
+(pdftex.def)             Requested size: 452.96788pt x 109.84592pt.
+ [12 <./firewall_rules.png (PNG copy)>] [13] [14] (./HiSPARCmaintenance.ind)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 870.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 870.
  (./HiSPARCmaintenance.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 785.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 785.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 870.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 870.
 Package rerunfilecheck Info: File `HiSPARCmaintenance.out' has not changed.
 (rerunfilecheck)             Checksum: F2EC6BA7B5C653BB96B9F71A5ECE85FC;263.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 785.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 870.
  ) 
 Here is how much of TeX's memory you used:
- 9137 strings out of 493315
- 128142 string characters out of 6137904
- 225541 words of memory out of 5000000
- 12285 multiletter control sequences out of 15000+600000
+ 9173 strings out of 493315
+ 128894 string characters out of 6137903
+ 226029 words of memory out of 5000000
+ 12306 multiletter control sequences out of 15000+600000
  59148 words of font info for 70 fonts, out of 8000000 for 9000
  958 hyphenation exceptions out of 8191
  36i,11n,45p,329b,493s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1029,10 +1078,10 @@ f-dist/fonts/type1/urw/helvetic/uhvbo8a.pfb></usr/local/texlive/2013/texmf-dist
 /fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/typ
 e1/urw/times/utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/tim
 es/utmri8a.pfb>
-Output written on HiSPARCmaintenance.pdf (17 pages, 110372 bytes).
+Output written on HiSPARCmaintenance.pdf (19 pages, 155023 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
- 161 compressed objects within 2 object streams
- 52 named destinations out of 1000 (max. 500000)
- 66 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 210 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
+ 58 named destinations out of 1000 (max. 500000)
+ 71 words of extra memory for PDF output out of 10000 (max. 10000000)
 

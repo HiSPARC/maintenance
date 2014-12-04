@@ -52,12 +52,12 @@ each problem some steps are given which can be followed to determine if
 that problem is indeed occuring on your station. Possible Nagios Service
 warnings that might alert you to the problem are noted.</p>
 <p>Here are filters to only show problems which cause a certain Nagios warning:
-<a class="reference external" href="?nagios=Buffersize">Buffer size</a>,
-<a class="reference external" href="?nagios=CPULoad">CPU Load</a>,
-<a class="reference external" href="?nagios=DriveSpace">Drive Space</a>,
+<a class="reference external" href="?nagios=Buffer%20size">Buffer size</a>,
+<a class="reference external" href="?nagios=CPU%20Load">CPU Load</a>,
+<a class="reference external" href="?nagios=Drive%20Space">Drive Space</a>,
 <a class="reference external" href="?nagios=EventRate">EventRate</a>,
-<a class="reference external" href="?nagios=LabviewUsage">Labview Usage</a>,
-<a class="reference external" href="?nagios=MemoryUsage">Memory Usage</a>,
+<a class="reference external" href="?nagios=Labview%20Usage">Labview Usage</a>,
+<a class="reference external" href="?nagios=Memory%20Usage">Memory Usage</a>,
 <a class="reference external" href="?nagios=StorageGrowth">StorageGrowth</a>,
 <a class="reference external" href="?nagios=StorageSize">StorageSize</a>,
 <a class="reference external" href="?nagios=TriggerRate">TriggerRate</a>,
@@ -321,6 +321,35 @@ correctly in the configuration file:
 </tbody>
 </table>
 </div>
+<div class="section" id="access-denied-for-mysql-buffer">
+<h4>Access denied for MySQL buffer<a class="headerlink" href="#access-denied-for-mysql-buffer" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body">Error in Nagios: <tt class="code docutils literal"><span class="pre">Buffer</span> <span class="pre">size:</span> <span class="pre">Access</span> <span class="pre">denied</span> <span class="pre">for</span> <span class="pre">user</span>
+<span class="pre">'buffer'&#64;'localhost'</span></tt></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><strong>Buffer size</strong></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body">Check if the file <tt class="code docutils literal"><span class="pre">hisparc/user/diagnosticchecks/checks.py</span></tt>
+contains only one path to a CONFIG_INI:
+<tt class="code docutils literal"><span class="pre">CONFIG_INI</span> <span class="pre">=</span> <span class="pre">&quot;../../user/hsmonitor/data/config.ini&quot;</span></tt>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body">Open the file <tt class="code docutils literal"><span class="pre">hisparc/user/diagnosticchecks/checks.py</span></tt>
+in a text editor like NotePad and add the following line after
+the line starting with <tt class="code docutils literal"><span class="pre">CONFIG_INI</span> <span class="pre">=</span> <span class="pre">&quot;../..</span></tt>:
+<tt class="code docutils literal"><span class="pre">CONFIG_INI2</span> <span class="pre">=</span> <span class="pre">&quot;../../user/hsmonitor/data/config-password.ini&quot;</span></tt>.
+Finally several lines later is the following code:
+<tt class="code docutils literal"><span class="pre">config.read(CONFIG_INI)</span></tt>, replace this by:
+<tt class="code docutils literal"><span class="pre">config.read([CONFIG_INI,</span> <span class="pre">CONFIG_INI2])</span></tt>.
+Save the file.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Nagios can not monitor the Buffer size.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="gps">
 <h3>GPS<a class="headerlink" href="#gps" title="Permalink to this headline">¶</a></h3>
@@ -455,6 +484,50 @@ the Write Config.</td>
 </div>
 <div class="section" id="firewall">
 <h3>Firewall<a class="headerlink" href="#firewall" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="incoming-firewall-rules">
+<h4>Incoming firewall rules<a class="headerlink" href="#incoming-firewall-rules" title="Permalink to this headline">¶</a></h4>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">First Sign:</th><td class="field-body"><p class="first">All active Nagios checks are critical.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Nagios:</th><td class="field-body"><p class="first"><strong>Host</strong>, <strong>Buffer size</strong>, <strong>CPU Load</strong>, <strong>Drive Space</strong>,
+<strong>Labview Usage</strong>, <strong>Memory Usage</strong>, <strong>Uptime</strong></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Determination:</th><td class="field-body"><p class="first">All of the above Nagios services are crtitical eventhough
+the software is running properly.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Solution:</th><td class="field-body"><ul class="first last simple">
+<li>Open the Windows Control Panel, go to Windows Firewall and
+Choose Advanced settings from the sidebar.</li>
+<li>If required enter an administrator password.</li>
+<li>Go the the Inbound Rules.</li>
+<li>Look for the three rules that start with HiSPARC.</li>
+<li>Open the Properties window for these rules, go the the Advanced tab.</li>
+<li>Enable the rules for both the Private and Public profiles.</li>
+<li>Next look for the rules called
+<tt class="code docutils literal"><span class="pre">File</span> <span class="pre">and</span> <span class="pre">Printer</span> <span class="pre">Sharing</span> <span class="pre">(Echo</span> <span class="pre">Request</span> <span class="pre">-</span> <span class="pre">ICMPv4-In)</span></tt>.</li>
+<li>Enable those if they are not yet enabled and also ensure they
+are enabled for both Profiles.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<a class="reference internal image-reference" href="_images/firewall_rules.png"><img alt="Firewall settings" class="align-center" src="_images/firewall_rules.png" style="width: 600px;" /></a>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Effects:</th><td class="field-body">Nagios can not monitor the PC status, VNC may also be blocked.</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="vpn-blocked">
 <h4>VPN blocked<a class="headerlink" href="#vpn-blocked" title="Permalink to this headline">¶</a></h4>
 <table class="docutils field-list" frame="void" rules="none">
@@ -699,7 +772,7 @@ supply to a power outlet.</td>
     </div>
     <div class="footer">
         &copy; Copyright 2009-2012, HiSPARC.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b1.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
     </div>
   </body>
 </html>
