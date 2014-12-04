@@ -228,6 +228,29 @@ Time difference to large
    :Keywords:
 
 
+Access denied for MySQL buffer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+:First Sign: Error in Nagios: :code:`Buffer size: Access denied for user
+             'buffer'@'localhost'`
+:Nagios: **Buffer size**
+:Determination: Check if the file :code:`hisparc/user/diagnosticchecks/checks.py`
+                contains only one path to a CONFIG_INI:
+                :code:`CONFIG_INI = "../../user/hsmonitor/data/config.ini"`.
+:Solution: Open the file :code:`hisparc/user/diagnosticchecks/checks.py`
+           in a text editor like NotePad and add the following line after
+           the line starting with :code:`CONFIG_INI = "../..`:
+           :code:`CONFIG_INI2 = "../../user/hsmonitor/data/config-password.ini"`.
+           Finally several lines later is the following code:
+           :code:`config.read(CONFIG_INI)`, replace this by:
+           :code:`config.read([CONFIG_INI, CONFIG_INI2])`.
+           Save the file.
+:Effects: Nagios can not monitor the Buffer size.
+
+.. :Fixed:
+   :Keywords:
+
+
 GPS
 ---
 
