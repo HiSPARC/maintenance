@@ -4,7 +4,7 @@ HiSPARC Maintenance Documentation
 This repository contains the source files and gh-pages for the HiSPARC maintenance documentation.
 
 The build version of these pages can be viewed here:
-http://hisparc.github.com/maintenance/
+https://hisparc.github.com/maintenance/
 
 Making a build from the source files requires Sphinx.
 
