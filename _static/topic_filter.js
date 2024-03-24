@@ -1,10 +1,10 @@
 /**
  * Hide every div with class 'section', except the one containing the given
- * Nagios tag and its ancestors. Currently a 4-level deep div is supported.
+ * Topic tag and its ancestors. Currently a 4-level deep div is supported.
  * Add link to show all
  */
 $(document).ready(function() {
-    var tag = getNagiosQuery()
+    var tag = getTopicQuery()
     if (tag.length) {
         var topics = $('strong:contains("' + tag + '")');
         var topic_divs = topics.closest('div')
@@ -14,18 +14,18 @@ $(document).ready(function() {
             topic_divs.parent().parent().closest('div').show();
             topic_divs.parent().closest('div').show();
             topic_divs.show();
-            $('<p class="filter-nagios"><a href="#" onclick="showAllIssues();' +
+            $('<p class="filter-topic"><a href="#" onclick="showAllIssues();' +
               'return false;">Show All Issues</a></p>').appendTo($('#searchbox'));}}
 });
 
 function showAllIssues() {
-    $('#searchbox .filter-nagios').fadeOut();
+    $('#searchbox .filter-topic').fadeOut();
     $('div.section').fadeIn();
 }
 
-function getNagiosQuery() {
+function getTopicQuery() {
     var params = $.getQueryParameters();
-    var terms = (params.nagios) ? params.nagios[0] : [];
+    var terms = (params.topic) ? params.topic[0] : [];
     return terms;
 }
 

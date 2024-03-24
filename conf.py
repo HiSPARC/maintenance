@@ -161,7 +161,7 @@ htmlhelp_basename = 'HiSPARCmaintenance'
 
 def setup(app):
     app.add_stylesheet('hisparc_style.css')
-    app.add_javascript('nagios_filter.js')
+    app.add_javascript('topic_filter.js')
 
 # -- Options for LaTeX output --------------------------------------------------
 
