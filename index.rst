@@ -15,8 +15,7 @@ A pdf version of this manual is available here: `HiSPARC maintenance manual
 
 For more information about |hisparc|, see the `HiSPARC Website <https://www.hisparc.nl/>`_.
 
-For questions or suggestions please contact our project coordinator
-Surya Bonam (info@hisparc.nl).
+For questions or suggestions please contact us at hisparc@utah.edu.
 
 .. toctree::
    :maxdepth: 2

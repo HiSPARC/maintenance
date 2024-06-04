@@ -403,7 +403,7 @@ Web blocked
 :First Sign: No data is uploaded, the local storage fills with events.
 :Topic: **StorageSize**
 :Determination: Try opening a website in a browser on the detector PC,
-                preferably www.nikhef.nl, if this fails then web traffic
+                preferably https://hisparc.utah.edu, if this fails then web traffic
                 is blocked. If the browser has no problems, then look at
                 the `Proxy not set`_ issue.
 :Solution: Open port 80 in the firewalls
